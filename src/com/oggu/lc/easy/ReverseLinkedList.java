@@ -13,7 +13,7 @@ import com.oggu.lc.utils.ListNodeUtils;
 public class ReverseLinkedList {
 
 	/**
-	 * @param args
+	 * @param args arguments
 	 */
 	public static void main(String[] args) {
 
@@ -25,21 +25,6 @@ public class ReverseLinkedList {
 
 	public static ListNode reverseList(ListNode head) {
 
-		if (head == null || head.next == null)
-			return head;
-
-		ListNode first = head;
-		ListNode temp = head.next;
-		first.next = null;
-
-		while (temp != null) {
-			ListNode temp2 = temp.next;
-			temp.next = first;
-			first = temp;
-
-			temp = temp2;
-		}
-
-		return first;
+		return head;
 	}
 }
