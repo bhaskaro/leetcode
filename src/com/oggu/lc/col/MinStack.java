@@ -72,4 +72,27 @@ public class MinStack {
         return tset.first();
     }
 
+    public void push(int x) {
+
+        list.add(x);
+        tset.add(x);
+        listSize++;
+    }
+
+    public void pop() {
+
+        int x = list.remove(listSize--);
+
+        if (!list.contains(x))
+            tset.remove(x);
+    }
+
+    public int top() {
+        return list.get(listSize);
+    }
+
+    public int getMin() {
+        return tset.first();
+    }
+
 }

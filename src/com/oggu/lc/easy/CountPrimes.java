@@ -106,4 +106,11 @@ public class CountPrimes {
         return (int) count;
     }
 
+    public int countPrimesOld1(int n) {
+
+        long count = IntStream.range(1, n).parallel().filter(x -> isPrime(x) == true).count();
+
+        return (int) count;
+    }
+
 }
