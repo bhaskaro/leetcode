@@ -58,9 +58,8 @@ public class RotateList {
             kpone = kpone.next;
 
         ListNode lastNode = kpone;
-        while (lastNode != null && lastNode.next != null) {
+        while (lastNode != null && lastNode.next != null)
             lastNode = lastNode.next;
-        }
 
         temp = head;
         assert kpone != null;
@@ -69,48 +68,5 @@ public class RotateList {
         lastNode.next = temp;
 
         return head;
-    }
-
-    static int ListLength(ListNode head) {
-        int len = 0;
-        while (head != null) {
-            head = head.next;
-            len++;
-        }
-        return len;
-    }
-
-    public static ListNode rotateRight(ListNode head, int k) {
-
-        ListNode temp = head;
-
-        if (k == 0 || head == null || head.next == null)
-            return head;
-
-        int len = ListLength(head);
-        k = k % len;
-
-        while (k-- > 0) {
-
-            ListNode lastbone = temp;
-            ListNode last;
-
-            last = lastbone.next;
-
-            // go to end of list
-            while (last.next != null) {
-                lastbone = lastbone.next;
-                last = last.next;
-            }
-
-            if (lastbone != null)
-                lastbone.next = null;
-
-            last.next = temp;
-
-            temp = last;
-        }
-
-        return temp;
     }
 }
