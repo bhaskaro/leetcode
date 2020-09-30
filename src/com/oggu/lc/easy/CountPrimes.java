@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.oggu.lc.easy;
 
 import java.util.Arrays;
@@ -24,7 +21,7 @@ import java.util.stream.IntStream;
 public class CountPrimes {
 
     /**
-     * @param args
+     * @param args input arguments
      */
     public static void main(String[] args) {
 
@@ -83,9 +80,7 @@ public class CountPrimes {
 
         if (n == 1) {
             isPrime = false;
-        } else if (n == 2 || n == 3) {
-            isPrime = true;
-        } else {
+        } else if (n > 3) {
 
             for (int i = 2; i <= n / 2; ++i) {
 
@@ -101,14 +96,7 @@ public class CountPrimes {
 
     public int countPrimesOld1(int n) {
 
-        long count = IntStream.range(1, n).parallel().filter(x -> isPrime(x) == true).count();
-
-        return (int) count;
-    }
-
-    public int countPrimesOld1(int n) {
-
-        long count = IntStream.range(1, n).parallel().filter(x -> isPrime(x) == true).count();
+        long count = IntStream.range(1, n).parallel().filter(CountPrimes::isPrime).count();
 
         return (int) count;
     }
