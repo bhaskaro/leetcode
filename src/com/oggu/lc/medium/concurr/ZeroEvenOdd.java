@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.medium.concurr;
 
@@ -14,96 +14,96 @@ import java.util.function.IntConsumer;
  */
 public class ZeroEvenOdd {
 
-	private int n;
-	private int x = 0;
+    private int n;
+    private int x = 0;
 
-	private boolean zero = false;
+    private boolean zero = false;
 
-	public ZeroEvenOdd(int n) {
-		this.n = n;
-		zero = n > 0 ? true : false;
-	}
+    public ZeroEvenOdd(int n) {
+        this.n = n;
+        zero = n > 0 ? true : false;
+    }
 
-	// printNumber.accept(x) outputs "x", where x is an integer.
-	public synchronized void zero(IntConsumer printNumber) throws InterruptedException {
+    public static void main(String args[]) {
 
-		while (x < n)
-			if (zero) {
-				printNumber.accept(0);
-				x++;
-				zero = !zero;
-				this.notifyAll();
-			} else
-				this.wait();
-	}
+        try {
+            final ZeroEvenOdd zeo = new ZeroEvenOdd(1); // 3 is the n in the test case
 
-	public synchronized void odd(IntConsumer printNumber) throws InterruptedException {
+            final IntConsumer ic = (x) -> System.out.print(Integer.valueOf(x) + " ");
 
-		while (x <= n)
-			if (x % 2 == 1 && !zero) {
-				printNumber.accept(x);
-				if (x == n) {
-					x++;
-					zero = false;
-				} else
-					zero = !zero;
-				this.notifyAll();
-			} else
-				this.wait();
+            ExecutorService es = Executors.newFixedThreadPool(3); // need at least 3 threads going
+            es.submit(() -> {
+                try {
+                    zeo.zero(ic);
+                } catch (InterruptedException ign) {
+                }
+            });
+            es.submit(() -> {
+                try {
+                    zeo.even(ic);
+                } catch (InterruptedException ign) {
+                }
+            });
+            es.submit(() -> {
+                try {
+                    zeo.odd(ic);
+                } catch (InterruptedException ign) {
+                }
+            });
 
-	}
+            es.shutdown();
+            es.awaitTermination(1, TimeUnit.DAYS); // OK crazy - but ...
+            System.out.println();
 
-	public synchronized void even(IntConsumer printNumber) throws InterruptedException {
+        } catch (Throwable t) {
+            t.printStackTrace();
+            System.out.println("===================");
+            System.exit(-2);
+        }
+    }
 
-		while (x <= n)
-			if (x % 2 == 0 && !zero) {
-				printNumber.accept(x);
+    // printNumber.accept(x) outputs "x", where x is an integer.
+    public synchronized void zero(IntConsumer printNumber) throws InterruptedException {
 
-				if (x == n) {
-					x++;
-					zero = false;
-				} else
-					zero = !zero;
-				this.notifyAll();
-			} else
-				this.wait();
-	}
+        while (x < n)
+            if (zero) {
+                printNumber.accept(0);
+                x++;
+                zero = !zero;
+                this.notifyAll();
+            } else
+                this.wait();
+    }
 
-	public static void main(String args[]) {
+    public synchronized void odd(IntConsumer printNumber) throws InterruptedException {
 
-		try {
-			final ZeroEvenOdd zeo = new ZeroEvenOdd(1); // 3 is the n in the test case
+        while (x <= n)
+            if (x % 2 == 1 && !zero) {
+                printNumber.accept(x);
+                if (x == n) {
+                    x++;
+                    zero = false;
+                } else
+                    zero = !zero;
+                this.notifyAll();
+            } else
+                this.wait();
 
-			final IntConsumer ic = (x) -> System.out.print(Integer.valueOf(x) + " ");
+    }
 
-			ExecutorService es = Executors.newFixedThreadPool(3); // need at least 3 threads going
-			es.submit(() -> {
-				try {
-					zeo.zero(ic);
-				} catch (InterruptedException ign) {
-				}
-			});
-			es.submit(() -> {
-				try {
-					zeo.even(ic);
-				} catch (InterruptedException ign) {
-				}
-			});
-			es.submit(() -> {
-				try {
-					zeo.odd(ic);
-				} catch (InterruptedException ign) {
-				}
-			});
+    public synchronized void even(IntConsumer printNumber) throws InterruptedException {
 
-			es.shutdown();
-			es.awaitTermination(1, TimeUnit.DAYS); // OK crazy - but ...
-			System.out.println();
+        while (x <= n)
+            if (x % 2 == 0 && !zero) {
+                printNumber.accept(x);
 
-		} catch (Throwable t) {
-			t.printStackTrace();
-			System.out.println("===================");
-			System.exit(-2);
-		}
-	}
+                if (x == n) {
+                    x++;
+                    zero = false;
+                } else
+                    zero = !zero;
+                this.notifyAll();
+            } else
+                this.wait();
+    }
 }

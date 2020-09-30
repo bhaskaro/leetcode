@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.practice;
 
@@ -9,13 +9,13 @@ package com.oggu.lc.practice;
  */
 public class Sujay {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		System.out.println("HIIIIIIIIIIIIIIIIIIIIIIII");
+        System.out.println("HIIIIIIIIIIIIIIIIIIIIIIII");
 
-	}
+    }
 
 }

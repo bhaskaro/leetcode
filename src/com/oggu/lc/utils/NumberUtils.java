@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.utils;
 
@@ -14,60 +14,60 @@ import java.util.Random;
  */
 public class NumberUtils {
 
-	private static final Random random = new Random();
+    private static final Random random = new Random();
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		System.out.println(Arrays.toString(randomNums(10)));
-		System.out.println(Arrays.toString(randomNumsSorted(10)));
-	}
+        System.out.println(Arrays.toString(randomNums(10)));
+        System.out.println(Arrays.toString(randomNumsSorted(10)));
+    }
 
-	public static int[] randomNums(int len) {
+    public static int[] randomNums(int len) {
 
-		int[] out = new int[len];
+        int[] out = new int[len];
 
-		for (int i = 0; i < len; i++) {
-			out[i] = random.nextInt(len * 10);
-		}
+        for (int i = 0; i < len; i++) {
+            out[i] = random.nextInt(len * 10);
+        }
 
-		return out;
-	}
+        return out;
+    }
 
-	public static int[] randomNumsSorted(int len) {
+    public static int[] randomNumsSorted(int len) {
 
-		int[] out = randomNums(len);
+        int[] out = randomNums(len);
 
-		Arrays.sort(out);
+        Arrays.sort(out);
 
-		return out;
-	}
+        return out;
+    }
 
-	public static int[] uniqRandomNumsSorted(int len) {
+    public static int[] uniqRandomNumsSorted(int len) {
 
-		int[] out = uniqRandomNums(len);
+        int[] out = uniqRandomNums(len);
 
-		Arrays.sort(out);
+        Arrays.sort(out);
 
-		return out;
-	}
+        return out;
+    }
 
-	public static int[] uniqRandomNums(int len) {
+    public static int[] uniqRandomNums(int len) {
 
-		int[] out = new int[len];
+        int[] out = new int[len];
 
-		List<Integer> intList = new ArrayList<Integer>(len);
+        List<Integer> intList = new ArrayList<Integer>(len);
 
-		for (int i = 0; i < len * 2; i++) {
-			intList.add(i);
-		}
+        for (int i = 0; i < len * 2; i++) {
+            intList.add(i);
+        }
 
-		for (int i = 0; i < len; i++) {
-			out[i] = intList.remove(random.nextInt(intList.size()));
-		}
+        for (int i = 0; i < len; i++) {
+            out[i] = intList.remove(random.nextInt(intList.size()));
+        }
 
-		return out;
-	}
+        return out;
+    }
 }

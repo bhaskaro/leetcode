@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.col;
 
@@ -13,63 +13,63 @@ import java.util.TreeSet;
  */
 public class MinStack {
 
-	private List<Integer> list = null;
-	private TreeSet<Integer> tset = null;
-	int listSize = -1;
+    int listSize = -1;
+    private List<Integer> list = null;
+    private TreeSet<Integer> tset = null;
 
-	/** initialize your data structure here. */
-	public MinStack() {
-		list = new ArrayList<>();
-		tset = new TreeSet<Integer>();
-	}
+    /** initialize your data structure here. */
+    public MinStack() {
+        list = new ArrayList<>();
+        tset = new TreeSet<Integer>();
+    }
 
-	public void push(int x) {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		list.add(x);
-		tset.add(x);
-		listSize++;
-	}
+        MinStack minStack = new MinStack();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        System.out.println(minStack.getMin()); // return -3
+        minStack.pop();
+        System.out.println(minStack.top()); // return 0
+        System.out.println(minStack.getMin()); // return -2
 
-	public void pop() {
+        minStack = new MinStack();
+        minStack.push(0);
+        minStack.push(1);
+        minStack.push(0);
 
-		int x = list.remove(listSize--);
+        System.out.println(minStack.getMin()); // return -3
+        minStack.pop();
+        // System.out.println(minStack.top()); // return 0
+        System.out.println(minStack.getMin()); // return -2
 
-		if (!list.contains(x))
-			tset.remove(x);
-	}
+    }
 
-	public int top() {
-		return list.get(listSize);
-	}
+    public void push(int x) {
 
-	public int getMin() {
-		return tset.first();
-	}
+        list.add(x);
+        tset.add(x);
+        listSize++;
+    }
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    public void pop() {
 
-		MinStack minStack = new MinStack();
-		minStack.push(-2);
-		minStack.push(0);
-		minStack.push(-3);
-		System.out.println(minStack.getMin()); // return -3
-		minStack.pop();
-		System.out.println(minStack.top()); // return 0
-		System.out.println(minStack.getMin()); // return -2
+        int x = list.remove(listSize--);
 
-		minStack = new MinStack();
-		minStack.push(0);
-		minStack.push(1);
-		minStack.push(0);
+        if (!list.contains(x))
+            tset.remove(x);
+    }
 
-		System.out.println(minStack.getMin()); // return -3
-		minStack.pop();
-		// System.out.println(minStack.top()); // return 0
-		System.out.println(minStack.getMin()); // return -2
+    public int top() {
+        return list.get(listSize);
+    }
 
-	}
+    public int getMin() {
+        return tset.first();
+    }
 
 }

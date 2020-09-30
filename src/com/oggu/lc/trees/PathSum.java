@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.trees;
 
@@ -9,41 +9,41 @@ package com.oggu.lc.trees;
  */
 public class PathSum {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	public boolean hasPathSum(TreeNode root, int sum) {
+    public boolean hasPathSum(TreeNode root, int sum) {
 
-		if (root == null)
-			return false;
+        if (root == null)
+            return false;
 
-		if (root.left == null && root.right == null)
-			return sum == root.val;
+        if (root.left == null && root.right == null)
+            return sum == root.val;
 
-		return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
-	}
+        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+    }
 
-	public static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-		TreeNode() {
-		}
+        TreeNode() {
+        }
 
-		TreeNode(int val) {
-			this.val = val;
-		}
+        TreeNode(int val) {
+            this.val = val;
+        }
 
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-	}
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
 }

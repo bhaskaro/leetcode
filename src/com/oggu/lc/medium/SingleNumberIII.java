@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.medium;
 
@@ -13,52 +13,52 @@ import java.util.Set;
  */
 public class SingleNumberIII {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		int[] nums = new int[] { 1, 2, 1, 3, 2, 5 };
-		System.out.println(Arrays.toString(nums) + " -- singleNumber : " + Arrays.toString(singleNumber(nums)));
+        int[] nums = new int[]{1, 2, 1, 3, 2, 5};
+        System.out.println(Arrays.toString(nums) + " -- singleNumber : " + Arrays.toString(singleNumber(nums)));
 
-		nums = new int[] { -1, 0 };
-		System.out.println(Arrays.toString(nums) + " -- singleNumber : " + Arrays.toString(singleNumber(nums)));
+        nums = new int[]{-1, 0};
+        System.out.println(Arrays.toString(nums) + " -- singleNumber : " + Arrays.toString(singleNumber(nums)));
 
-		nums = new int[] { 0, 1 };
-		System.out.println(Arrays.toString(nums) + " -- singleNumber : " + Arrays.toString(singleNumber(nums)));
+        nums = new int[]{0, 1};
+        System.out.println(Arrays.toString(nums) + " -- singleNumber : " + Arrays.toString(singleNumber(nums)));
 
-		nums = new int[] { 0, 1, 1, 2 };
-		System.out.println(Arrays.toString(nums) + " -- singleNumber : " + Arrays.toString(singleNumber(nums)));
-	}
+        nums = new int[]{0, 1, 1, 2};
+        System.out.println(Arrays.toString(nums) + " -- singleNumber : " + Arrays.toString(singleNumber(nums)));
+    }
 
-	public static int[] singleNumber(int[] nums) {
+    public static int[] singleNumber(int[] nums) {
 
-		Arrays.sort(nums);
-		int[] out = new int[2];
-		int x = 0;
+        Arrays.sort(nums);
+        int[] out = new int[2];
+        int x = 0;
 
-		for (int i = 0; i < nums.length; i++)
-			if (i < nums.length - 1 && nums[i] == nums[i + 1])
-				i++;
-			else
-				out[x++] = nums[i];
+        for (int i = 0; i < nums.length; i++)
+            if (i < nums.length - 1 && nums[i] == nums[i + 1])
+                i++;
+            else
+                out[x++] = nums[i];
 
-		return out;
-	}
+        return out;
+    }
 
-	public static int[] singleNumberOld(int[] nums) {
+    public static int[] singleNumberOld(int[] nums) {
 
-		Set<Integer> set = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
 
-		for (int i : nums)
-			if (set.contains(i))
-				set.remove(i);
-			else
-				set.add(i);
+        for (int i : nums)
+            if (set.contains(i))
+                set.remove(i);
+            else
+                set.add(i);
 
-		Integer[] array = set.stream().toArray(Integer[]::new);
+        Integer[] array = set.stream().toArray(Integer[]::new);
 
-		return new int[] { array[0], array[1] };
-	}
+        return new int[]{array[0], array[1]};
+    }
 
 }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.utils;
 
@@ -12,45 +12,45 @@ import java.util.Random;
  */
 public class BinarySearch {
 
-	private static final Random random = new Random();
+    private static final Random random = new Random();
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		int[] nums = NumberUtils.uniqRandomNumsSorted(10);
-		int target = nums[random.nextInt(nums.length)];
+        int[] nums = NumberUtils.uniqRandomNumsSorted(10);
+        int target = nums[random.nextInt(nums.length)];
 
-		System.out.println(target + " found at idx " + binarySearch(nums, target) + ", for : " + Arrays.toString(nums));
-		nums = NumberUtils.uniqRandomNumsSorted(10);
-		target = nums[random.nextInt(nums.length)];
-		System.out.println(target + " found at idx " + binarySearch(nums, target) + ", for : " + Arrays.toString(nums));
-		nums = NumberUtils.uniqRandomNumsSorted(10);
-		target = nums[random.nextInt(nums.length)];
-		System.out.println(target + " found at idx " + binarySearch(nums, target) + ", for : " + Arrays.toString(nums));
-	}
+        System.out.println(target + " found at idx " + binarySearch(nums, target) + ", for : " + Arrays.toString(nums));
+        nums = NumberUtils.uniqRandomNumsSorted(10);
+        target = nums[random.nextInt(nums.length)];
+        System.out.println(target + " found at idx " + binarySearch(nums, target) + ", for : " + Arrays.toString(nums));
+        nums = NumberUtils.uniqRandomNumsSorted(10);
+        target = nums[random.nextInt(nums.length)];
+        System.out.println(target + " found at idx " + binarySearch(nums, target) + ", for : " + Arrays.toString(nums));
+    }
 
-	private static int binarySearch(int[] nums, int target) {
+    private static int binarySearch(int[] nums, int target) {
 
-		int left = 0;
-		int right = nums.length;
+        int left = 0;
+        int right = nums.length;
 
-		int mid = 0;
+        int mid = 0;
 
-		while (left < right) {
+        while (left < right) {
 
-			mid = (left + right) / 2;
+            mid = (left + right) / 2;
 
-			if (nums[mid] == target)
-				break;
-			else if (nums[mid] < target)
-				left = mid + 1;
-			else
-				right = mid;
-		}
+            if (nums[mid] == target)
+                break;
+            else if (nums[mid] < target)
+                left = mid + 1;
+            else
+                right = mid;
+        }
 
-		return nums[mid] == target ? mid : -1;
-	}
+        return nums[mid] == target ? mid : -1;
+    }
 
 }

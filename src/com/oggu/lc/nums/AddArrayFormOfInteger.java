@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.nums;
 
@@ -13,70 +13,70 @@ import java.util.List;
  * <code>For a non-negative integer X, the array-form of X is an array of its digits in left to right order.  
  * For example, if X = 1231, then the array form is [1,2,3,1].
  * Given the array-form A of a non-negative integer X, return the array-form of the integer X+K.</code>
- * 
+ *
  * @author Bhaskar
  *
  */
 public class AddArrayFormOfInteger {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		int[] A = new int[] { 1, 2, 0, 0 };
-		int K = 34;
+        int[] A = new int[]{1, 2, 0, 0};
+        int K = 34;
 
-		List<Integer> out = addToArrayForm(A, K);
-		System.out.println("out : " + out);
+        List<Integer> out = addToArrayForm(A, K);
+        System.out.println("out : " + out);
 
-		System.out.println("===========================================");
-		A = new int[] { 2, 7, 4 };
-		K = 181;
+        System.out.println("===========================================");
+        A = new int[]{2, 7, 4};
+        K = 181;
 
-		out = addToArrayForm(A, K);
-		System.out.println("out : " + out);
-		System.out.println("===========================================");
-		A = new int[] { 2, 1, 5 };
-		K = 806;
+        out = addToArrayForm(A, K);
+        System.out.println("out : " + out);
+        System.out.println("===========================================");
+        A = new int[]{2, 1, 5};
+        K = 806;
 
-		out = addToArrayForm(A, K);
-		System.out.println("out : " + out);
-	}
+        out = addToArrayForm(A, K);
+        System.out.println("out : " + out);
+    }
 
-	public static List<Integer> addToArrayForm(int[] A, int K) {
+    public static List<Integer> addToArrayForm(int[] A, int K) {
 
-		List<Integer> out = new ArrayList<Integer>();
+        List<Integer> out = new ArrayList<Integer>();
 
-		int rem = 0;
-		int aLen = A.length;
+        int rem = 0;
+        int aLen = A.length;
 
-		while (aLen > 0 || K > 0) {
+        while (aLen > 0 || K > 0) {
 
-			int temp = rem;
-			rem = 0;
+            int temp = rem;
+            rem = 0;
 
-			if (K > 0) {
-				temp = temp + (K % 10);
-				K = K / 10;
-			}
+            if (K > 0) {
+                temp = temp + (K % 10);
+                K = K / 10;
+            }
 
-			if (aLen > 0)
-				temp = temp + A[--aLen];
+            if (aLen > 0)
+                temp = temp + A[--aLen];
 
-			if (temp >= 10) {
-				rem = 1;
-				temp = temp % 10;
-			}
+            if (temp >= 10) {
+                rem = 1;
+                temp = temp % 10;
+            }
 
-			out.add(temp);
-		}
+            out.add(temp);
+        }
 
-		if (rem > 0)
-			out.add(rem);
+        if (rem > 0)
+            out.add(rem);
 
-		Collections.reverse(out);
+        Collections.reverse(out);
 
-		return out;
-	}
+        return out;
+    }
 }

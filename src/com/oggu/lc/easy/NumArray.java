@@ -1,45 +1,45 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.easy;
 
 /**
  * https://leetcode.com/problems/range-sum-query-immutable/
- * 
+ *
  * @author Bhaskar
  *
  */
 public class NumArray {
 
-	private int[] sums = null;
+    private int[] sums = null;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+    public NumArray(int[] nums) {
 
-		int[] nums = new int[] { -2, 0, 3, -5, 2, -1 };
-		NumArray numArray = new NumArray(nums);
+        int length = nums.length;
 
-		System.out.println("numArray : " + numArray.sumRange(0, 2));
-		System.out.println("numArray : " + numArray.sumRange(2, 5));
-		System.out.println("numArray : " + numArray.sumRange(0, 5));
-	}
+        if (length > 1)
+            for (int i = 1; i < length; i++)
+                nums[i] = nums[i] + nums[i - 1];
 
-	public NumArray(int[] nums) {
+        sums = nums;
+    }
 
-		int length = nums.length;
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
 
-		if (length > 1)
-			for (int i = 1; i < length; i++)
-				nums[i] = nums[i] + nums[i - 1];
+        int[] nums = new int[]{-2, 0, 3, -5, 2, -1};
+        NumArray numArray = new NumArray(nums);
 
-		sums = nums;
-	}
+        System.out.println("numArray : " + numArray.sumRange(0, 2));
+        System.out.println("numArray : " + numArray.sumRange(2, 5));
+        System.out.println("numArray : " + numArray.sumRange(0, 5));
+    }
 
-	public int sumRange(int i, int j) {
+    public int sumRange(int i, int j) {
 
-		return i > 0 ? sums[j] - sums[i - 1] : sums[j];
-	}
+        return i > 0 ? sums[j] - sums[i - 1] : sums[j];
+    }
 
 }

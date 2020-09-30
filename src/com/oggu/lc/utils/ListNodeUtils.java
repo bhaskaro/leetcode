@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.utils;
 
@@ -9,98 +9,98 @@ package com.oggu.lc.utils;
  */
 public class ListNodeUtils {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	public static ListNode getFirstNthElement(ListNode head, int n) {
+    public static ListNode getFirstNthElement(ListNode head, int n) {
 
-		if (n == 0 || head == null || head.next == null)
-			return head;
+        if (n == 0 || head == null || head.next == null)
+            return head;
 
-		int ctr = 0;
+        int ctr = 0;
 
-		while (head != null) {
+        while (head != null) {
 
-			ctr++;
+            ctr++;
 
-			if (ctr == n)
-				return head;
+            if (ctr == n)
+                return head;
 
-			head = head.next;
-		}
+            head = head.next;
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	public static ListNode getLastNthElement(ListNode head, int n) {
+    public static ListNode getLastNthElement(ListNode head, int n) {
 
-		if (n == 0)
-			return null;
+        if (n == 0)
+            return null;
 
-		int ctr = 0;
+        int ctr = 0;
 
-		ListNode nth = null;
-		ListNode temp = head;
+        ListNode nth = null;
+        ListNode temp = head;
 
-		while (head != null) {
+        while (head != null) {
 
-			ctr++;
+            ctr++;
 
-			if (ctr == n)
-				nth = temp;
-			else if (ctr > n)
-				nth = nth.next;
+            if (ctr == n)
+                nth = temp;
+            else if (ctr > n)
+                nth = nth.next;
 
-			head = head.next;
-		}
+            head = head.next;
+        }
 
-		return nth;
-	}
+        return nth;
+    }
 
-	public static int ListLength(ListNode head) {
-		int len = 0;
-		while (head != null) {
-			head = head.next;
-			len++;
-		}
-		return len;
-	}
+    public static int ListLength(ListNode head) {
+        int len = 0;
+        while (head != null) {
+            head = head.next;
+            len++;
+        }
+        return len;
+    }
 
-	public static void printListNode(ListNode listNode, Object... objs) {
+    public static void printListNode(ListNode listNode, Object... objs) {
 
-		if (objs != null) {
-			StringBuilder sb = new StringBuilder();
+        if (objs != null) {
+            StringBuilder sb = new StringBuilder();
 
-			for (Object obj : objs) {
-				sb.append(obj);
-				sb.append(" ");
-			}
-			System.out.println(sb);
-		}
+            for (Object obj : objs) {
+                sb.append(obj);
+                sb.append(" ");
+            }
+            System.out.println(sb);
+        }
 
-		while (listNode != null) {
-			System.out.print(listNode.val + " ");
-			listNode = listNode.next;
-		}
-		System.out.println();
-	}
+        while (listNode != null) {
+            System.out.print(listNode.val + " ");
+            listNode = listNode.next;
+        }
+        System.out.println();
+    }
 
-	public static ListNode fillListNode(int[] nums) {
+    public static ListNode fillListNode(int[] nums) {
 
-		ListNode head = new ListNode(0);
-		ListNode temp = head;
+        ListNode head = new ListNode(0);
+        ListNode temp = head;
 
-		for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
 
-			temp.next = new ListNode(nums[i]);
-			temp = temp.next;
-		}
+            temp.next = new ListNode(nums[i]);
+            temp = temp.next;
+        }
 
-		return head.next;
-	}
+        return head.next;
+    }
 }

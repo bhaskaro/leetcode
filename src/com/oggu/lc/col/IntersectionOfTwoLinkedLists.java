@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.oggu.lc.col;
 
@@ -12,47 +12,47 @@ import java.util.Set;
  */
 public class IntersectionOfTwoLinkedLists {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
-		Set<ListNode> set = new HashSet<ListNode>();
+        Set<ListNode> set = new HashSet<ListNode>();
 
-		while (headA != null || headB != null) {
+        while (headA != null || headB != null) {
 
-			if (headA != null) {
-				if (set.contains(headA))
-					return headA;
-				else
-					set.add(headA);
-				headA = headA.next;
-			}
+            if (headA != null) {
+                if (set.contains(headA))
+                    return headA;
+                else
+                    set.add(headA);
+                headA = headA.next;
+            }
 
-			if (headB != null) {
-				if (set.contains(headB))
-					return headB;
-				else
-					set.add(headB);
-				headB = headB.next;
-			}
-		}
+            if (headB != null) {
+                if (set.contains(headB))
+                    return headB;
+                else
+                    set.add(headB);
+                headB = headB.next;
+            }
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	public static class ListNode {
-		int val;
-		ListNode next;
+    public static class ListNode {
+        int val;
+        ListNode next;
 
-		ListNode(int x) {
-			val = x;
-			next = null;
-		}
-	}
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
 }
