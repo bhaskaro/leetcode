@@ -7,18 +7,17 @@ import com.oggu.lc.utils.ListNodeUtils;
  * https://leetcode.com/problems/rotate-list/ <br>
  * <br>
  * 61. Rotate List <br>
- *
+ * <p>
  * Given a linked list, rotate the list to the right by k places, where k is
  * non-negative.
  *
  * <b>Example 1:</b>
- *
+ * <p>
  * Input: 1->2->3->4->5->NULL, k = 2 Output: 4->5->1->2->3->NULL Explanation:
  * rotate 1 steps to the right: 5->1->2->3->4->NULL rotate 2 steps to the right:
  * 4->5->1->2->3->NULL
  *
  * @author Bhaskar
- *
  */
 public class RotateList {
 
@@ -31,46 +30,40 @@ public class RotateList {
         ListNode head = ListNodeUtils.fillListNode(nums);
         ListNodeUtils.printListNode(head);
         System.out.println("---------------------------------");
-        ListNode temp = rotateRight(head, 1);
+        ListNode temp = rotateRightNew(head, 1);
         ListNodeUtils.printListNode(temp);
         System.out.println("---------------------------------");
     }
 
-    public static ListNode rotateRight(ListNode head, int k) {
-
-        if (head == null || head.next == null || k == 0)
-            return head;
+    public static ListNode rotateRightNew(ListNode head, int k) {
 
         ListNode temp = head;
         int len = 0;
-
         while (temp != null) {
+            temp = temp.next;
             len++;
-            temp = temp.next;
         }
 
-        k = k > len ? k % len : k;
+        if (len <= 1 || k == 0 || head.next == null)
+            return head;
 
-        System.out.println("-----k " + k);
-        //find k plus one th item
-        temp = head;
+        k = k % len;
+        if (k == 0) return head;
+
         ListNode kpone = head;
-        int ctr = 0;
-        ListNode lastNode ;
+        int i = 0;
 
-        while (temp.next != null) {
-            if (ctr++ > k)
-                kpone = kpone.next;
-            temp = temp.next;
+        //go to last element i.e. (len - k)
+        while (kpone != null && ++i < len - k)
+            kpone = kpone.next;
+
+        ListNode lastNode = kpone;
+        while (lastNode != null && lastNode.next != null) {
+            lastNode = lastNode.next;
         }
 
-        lastNode = temp;
-        kpone = kpone.next;
-
-        System.out.println("-----lastNode " +lastNode.val);
-        System.out.println("-----kpone " +kpone.val);
-
         temp = head;
+        assert kpone != null;
         head = kpone.next;
         kpone.next = null;
         lastNode.next = temp;
@@ -87,7 +80,7 @@ public class RotateList {
         return len;
     }
 
-    public ListNode rotateRightOld(ListNode head, int k) {
+    public static ListNode rotateRight(ListNode head, int k) {
 
         ListNode temp = head;
 
@@ -100,13 +93,12 @@ public class RotateList {
         while (k-- > 0) {
 
             ListNode lastbone = temp;
-            ListNode last = null;
+            ListNode last;
 
-            if (lastbone != null)
-                last = lastbone.next;
+            last = lastbone.next;
 
             // go to end of list
-            while (last != null && last.next != null) {
+            while (last.next != null) {
                 lastbone = lastbone.next;
                 last = last.next;
             }
@@ -114,8 +106,7 @@ public class RotateList {
             if (lastbone != null)
                 lastbone.next = null;
 
-            if (last != null)
-                last.next = temp;
+            last.next = temp;
 
             temp = last;
         }
