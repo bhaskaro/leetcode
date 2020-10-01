@@ -24,7 +24,7 @@ public class SetMatrixZeroes {
         }
 
         setZeroes(arr);
-        System.out.println("-------------------------");
+        System.out.println("After making zeros -------------------------");
         for (int[] x : arr) {
             for (int i : x)
                 System.out.print(i + " ");
