@@ -6,7 +6,6 @@ import java.util.TreeSet;
 
 /**
  * @author Bhaskar
- *
  */
 public class MinStack {
 
@@ -14,7 +13,9 @@ public class MinStack {
     private List<Integer> list;
     private TreeSet<Integer> tset;
 
-    /** initialize your data structure here. */
+    /**
+     * initialize your data structure here.
+     */
     public MinStack() {
         list = new ArrayList<>();
         tset = new TreeSet<>();

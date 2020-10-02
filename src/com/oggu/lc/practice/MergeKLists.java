@@ -25,7 +25,7 @@ public class MergeKLists {
         return out;
     }
 
-     private static ListNode merge2Lists(ListNode list1, ListNode list2) {
+    private static ListNode merge2Lists(ListNode list1, ListNode list2) {
 
         if (list1 == null) return list2;
         if (list2 == null) return list1;

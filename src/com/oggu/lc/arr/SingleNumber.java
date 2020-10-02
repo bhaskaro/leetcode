@@ -4,6 +4,8 @@
 package com.oggu.lc.arr;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * https://leetcode.com/problems/single-number/ <br>
@@ -29,20 +31,29 @@ public class SingleNumber {
 
     public static int singleNumber(int[] nums) {
 
-        if (nums.length == 1)
-            return nums[0];
+        int result = 0;
+        for (int num : nums) result ^= num;
+        return result;
+    }
+
+    public static int singleNumberWithSort(int[] nums) {
 
         Arrays.sort(nums);
-
-        for (int i = 0; i < nums.length; i++)
-            if (i == nums.length - 1) {
-                return nums[i];
-            } else if (nums[i] == nums[i + 1]) {
-                i++;
-            } else {
-                return nums[i];
-            }
-
-        return 0;
+        for (int i = 0; i < nums.length; i += 2)
+            if (i == nums.length - 1 || nums[i] != nums[i + 1]) return nums[i];
+        return -1;
     }
+
+
+    public static int singleNumberWithSets(int[] nums) {
+
+        Set<Integer> set = new HashSet<>();
+
+        for (int num : nums)
+            if (set.contains(num)) set.remove(num);
+            else set.add(num);
+
+        return set.iterator().next();
+    }
+
 }
