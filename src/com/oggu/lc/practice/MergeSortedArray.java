@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.oggu.lc;
+package com.oggu.lc.practice;
 
 import java.util.Arrays;
 
