@@ -20,11 +20,11 @@ public class PalindromeLinkedList {
      */
     public static void main(String[] args) {
 
-        ListNode head = ListNodeUtils.fillListNode(new int[]{1, 2});
+        ListNode head = ListNodeUtils.createListNode(new int[]{1, 2});
         ListNodeUtils.printListNode(head, "list node : ");
         System.out.println("isPalindrome : " + isPalindrome(head));
 
-        head = ListNodeUtils.fillListNode(new int[]{1, 2, 2, 1});
+        head = ListNodeUtils.createListNode(new int[]{1, 2, 2, 1});
         ListNodeUtils.printListNode(head, "list node : ");
         System.out.println("isPalindrome : " + isPalindrome(head));
     }

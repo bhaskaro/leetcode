@@ -27,7 +27,7 @@ public class RotateList {
     public static void main(String[] args) {
 
         int[] nums = new int[]{1, 2};
-        ListNode head = ListNodeUtils.fillListNode(nums);
+        ListNode head = ListNodeUtils.createListNode(nums);
         ListNodeUtils.printListNode(head);
         System.out.println("---------------------------------");
         ListNode temp = rotateRightNew(head, 1);

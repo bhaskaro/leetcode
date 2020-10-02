@@ -17,7 +17,7 @@ public class ReverseLinkedList {
      */
     public static void main(String[] args) {
 
-        ListNode head = ListNodeUtils.fillListNode(new int[]{1, 2, 3, 4, 5, 6});
+        ListNode head = ListNodeUtils.createListNode(new int[]{1, 2, 3, 4, 5, 6});
         ListNodeUtils.printListNode(head, "before reversing");
         head = reverseList(head);
         ListNodeUtils.printListNode(head, "after reversing");

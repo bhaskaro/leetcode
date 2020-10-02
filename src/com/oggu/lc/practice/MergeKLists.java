@@ -7,10 +7,10 @@ public class MergeKLists {
 
     public static void main(String[] args) {
 
-        ListNode list1 = ListNodeUtils.fillListNode(1, 3, 5, 7, 9);
-        ListNode list2 = ListNodeUtils.fillListNode(2, 4, 6, 8, 10);
-        ListNode list3 = ListNodeUtils.fillListNode(11, 13, 15, 17, 19);
-        ListNode list4 = ListNodeUtils.fillListNode(12, 14, 16, 18, 20);
+        ListNode list1 = ListNodeUtils.createListNode(1, 3, 5, 7, 9);
+        ListNode list2 = ListNodeUtils.createListNode(2, 4, 6, 8, 10);
+        ListNode list3 = ListNodeUtils.createListNode(11, 13, 15, 17, 19);
+        ListNode list4 = ListNodeUtils.createListNode(12, 14, 16, 18, 20);
 
         ListNode merged = mergeLists(list1, list2, list3, list4);
         ListNodeUtils.printListNode(merged);
@@ -25,7 +25,7 @@ public class MergeKLists {
         return out;
     }
 
-    private static ListNode merge2Lists(ListNode list1, ListNode list2) {
+     private static ListNode merge2Lists(ListNode list1, ListNode list2) {
 
         if (list1 == null) return list2;
         if (list2 == null) return list1;

@@ -90,7 +90,7 @@ public class ListNodeUtils {
         System.out.println();
     }
 
-    public static ListNode fillListNode(int...nums) {
+    public static ListNode createListNode(int...nums) {
 
         ListNode head = new ListNode(0);
         ListNode temp = head;

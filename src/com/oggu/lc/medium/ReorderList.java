@@ -17,7 +17,7 @@ public class ReorderList {
      */
     public static void main(String[] args) {
 
-        ListNode head = ListNodeUtils.fillListNode(new int[]{1, 2, 3, 4, 5, 11, 12, 13, 14, 15});
+        ListNode head = ListNodeUtils.createListNode(new int[]{1, 2, 3, 4, 5, 11, 12, 13, 14, 15});
         ListNodeUtils.printListNode(head, "before reordering");
         reorderList(head);
         ListNodeUtils.printListNode(head, "after reordering");

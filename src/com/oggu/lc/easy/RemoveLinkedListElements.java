@@ -17,7 +17,7 @@ public class RemoveLinkedListElements {
      */
     public static void main(String[] args) {
 
-        ListNode head = ListNodeUtils.fillListNode(new int[]{3, 3, 3, 1, 2, 3, 3, 5, 6, 7, 8, 6, 2, 3});
+        ListNode head = ListNodeUtils.createListNode(new int[]{3, 3, 3, 1, 2, 3, 3, 5, 6, 7, 8, 6, 2, 3});
 
         ListNodeUtils.printListNode(head, "before removing");
         int val = 3;

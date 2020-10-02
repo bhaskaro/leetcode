@@ -7,7 +7,7 @@ public class SwapNodesInPairs {
 
     public static void main(String... args) {
 
-        ListNode head = ListNodeUtils.fillListNode(new int[]{1, 2, 3, 4, 5, 6});
+        ListNode head = ListNodeUtils.createListNode(new int[]{1, 2, 3, 4, 5, 6});
         ListNodeUtils.printListNode(head);
 
         ListNode swapPairs = swapPairs(head);

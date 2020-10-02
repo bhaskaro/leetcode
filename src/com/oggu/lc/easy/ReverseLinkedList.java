@@ -13,7 +13,7 @@ public class ReverseLinkedList {
      */
     public static void main(String[] args) {
 
-        ListNode head = ListNodeUtils.fillListNode(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+        ListNode head = ListNodeUtils.createListNode(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
         ListNodeUtils.printListNode(head, "before reversnig");
         ListNode reverseList = reverseList(head);
         ListNodeUtils.printListNode(reverseList, "after reversnig");
