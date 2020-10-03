@@ -16,13 +16,13 @@ public class IntersectionOfTwoLinkedLists {
      * @param args
      */
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
 
+        //tested this directly in leetcode, its working fine.
     }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
-        Set<ListNode> set = new HashSet<ListNode>();
+        Set<ListNode> set = new HashSet<>();
 
         while (headA != null || headB != null) {
 

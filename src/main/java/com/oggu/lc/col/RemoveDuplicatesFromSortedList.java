@@ -19,7 +19,7 @@ public class RemoveDuplicatesFromSortedList {
         head.next.next = new ListNode(2);
 
         printListNode(head);
-        head = deleteDuplicates(head);
+        deleteDuplicates(head);
         System.out.println("After removing duplicates");
         printListNode(head);
 
@@ -29,15 +29,14 @@ public class RemoveDuplicatesFromSortedList {
         head.next.next.next = new ListNode(3);
         head.next.next.next.next = new ListNode(3);
 
+        System.out.println("--------------------------------------------");
         printListNode(head);
-        head = deleteDuplicates(head);
+        deleteDuplicates(head);
         System.out.println("After removing duplicates");
         printListNode(head);
     }
 
     public static ListNode deleteDuplicates(ListNode head) {
-
-        ListNode root = head;
 
         while (head != null && head.next != null) {
             if (head.val == head.next.val) {
@@ -46,7 +45,7 @@ public class RemoveDuplicatesFromSortedList {
                 head = head.next;
             }
         }
-        return root;
+        return head;
     }
 
     private static void printListNode(ListNode listNode) {

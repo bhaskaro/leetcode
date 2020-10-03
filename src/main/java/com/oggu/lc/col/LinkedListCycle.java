@@ -46,7 +46,7 @@ public class LinkedListCycle {
             return false;
         }
 
-        Set<ListNode> list = new HashSet<ListNode>();
+        Set<ListNode> list = new HashSet<>();
 
         while (head != null) {
 

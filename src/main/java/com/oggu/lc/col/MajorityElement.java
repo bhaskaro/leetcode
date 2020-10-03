@@ -57,24 +57,22 @@ public class MajorityElement {
 
         int max = 0;
         int ele = 0;
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int num : nums) {
 
-            Integer val = map.get(nums[i]);
+            Integer val = map.get(num);
 
             if (val != null) {
 
-                map.put(nums[i], ++val);
+                map.put(num, ++val);
 
                 if (max < val + 1) {
                     max = val + 1;
-                    ele = nums[i];
+                    ele = num;
                 }
-            } else {
-                map.put(nums[i], 1);
-            }
-
+            } else
+                map.put(num, 1);
         }
 
         return ele;
