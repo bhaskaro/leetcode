@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * https://leetcode.com/problems/search-in-rotated-sorted-array/
+ *
  */
 public class SearchInRotatedSortedArray {
 
@@ -14,7 +14,6 @@ public class SearchInRotatedSortedArray {
         Random random = new SecureRandom();
         int[] nums = {4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3};
         int target = nums[random.nextInt(nums.length)];
-        target = 4;
         System.out.println("num : " + Arrays.toString(nums) + "w/ target : " + target + " search idx : " + search(nums, target));
 
         nums = new int[]{5, 6, 7, 4};
@@ -36,27 +35,21 @@ public class SearchInRotatedSortedArray {
         }
 
         int endIdx = findPivot(nums);
-        System.out.println("endIdx : " + endIdx);
 
         int left = 0;
         int right = length - 1;
 
-        if (target >= nums[0] && target <= nums[endIdx])
-            right = endIdx;
-        else
-            left = endIdx + 1;
+        if (target >= nums[0] && target <= nums[endIdx]) right = endIdx;
+        else left = endIdx + 1;
 
 
         while (left <= right) {
 
             int mid = left + (right - left) / 2;
 
-            if (nums[mid] == target)
-                return mid;
-            else if (nums[mid] > target)
-                right = mid - 1;
-            else
-                left = mid + 1;
+            if (nums[mid] == target) return mid;
+            else if (nums[mid] > target) right = mid - 1;
+            else left = mid + 1;
         }
         return -1;
     }
