@@ -20,16 +20,14 @@ public class ListNodeUtils {
 
     public static ListNode getFirstNthElement(ListNode head, int n) {
 
-        if (n == 0 || head == null || head.next == null)
+        if (n == 0 || head == null)
             return head;
 
         int ctr = 0;
 
         while (head != null) {
 
-            ctr++;
-
-            if (ctr == n)
+            if (++ctr == n)
                 return head;
 
             head = head.next;
