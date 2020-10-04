@@ -4,7 +4,9 @@
 package com.oggu.lc.practice;
 
 import com.oggu.lc.utils.ListNode;
+import com.oggu.lc.utils.ListNodeUtils;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -16,20 +18,21 @@ import java.util.Random;
 public class ListGetElement {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
+        Random random = new SecureRandom();
 
         int[] nums = new int[]{1, 2, 3, 4, 5, 6};
-        ListNode head = fillListNode(nums);
-        printListNode(head);
+        ListNode head = ListNodeUtils.createListNode(nums);
+        ListNodeUtils.printListNode(head);
 
         System.out.println("---------------------------------");
 
-        int n = new Random().nextInt(nums.length - 1) + 1;
+        int n = random.nextInt(nums.length - 1) + 1;
         System.out.println("first : " + n + "th element : " + getFirstNthElement(head, n).val);
 
-        n = new Random().nextInt(nums.length - 1) + 1;
+        n = random.nextInt(nums.length - 1) + 1;
         System.out.println("last : " + n + "th element : " + getLastNthElement(head, n).val);
     }
 
@@ -76,38 +79,6 @@ public class ListGetElement {
         }
 
         return nth;
-    }
-
-    static int ListLength(ListNode head) {
-        int len = 0;
-        while (head != null) {
-            head = head.next;
-            len++;
-        }
-        return len;
-    }
-
-    private static void printListNode(ListNode listNode) {
-
-        while (listNode != null) {
-            System.out.print(listNode.val + " ");
-            listNode = listNode.next;
-        }
-        System.out.println();
-    }
-
-    private static ListNode fillListNode(int[] nums) {
-
-        ListNode head = new ListNode(0);
-        ListNode temp = head;
-
-        for (int i = 0; i < nums.length; i++) {
-
-            temp.next = new ListNode(nums[i]);
-            temp = temp.next;
-        }
-
-        return head.next;
     }
 
 }

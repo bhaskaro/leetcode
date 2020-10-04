@@ -1,7 +1,7 @@
-/**
- *
- */
 package com.oggu.lc.medium.concurr;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -10,44 +10,48 @@ import java.util.function.IntConsumer;
 
 /**
  * @author Bhaskar
- *
  */
 public class ZeroEvenOdd {
+
+    private static Logger logger = LogManager.getLogger();
 
     private int n;
     private int x = 0;
 
-    private boolean zero = false;
+    private boolean zero;
 
     public ZeroEvenOdd(int n) {
         this.n = n;
-        zero = n > 0 ? true : false;
+        zero = n > 0;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         try {
             final ZeroEvenOdd zeo = new ZeroEvenOdd(1); // 3 is the n in the test case
 
-            final IntConsumer ic = (x) -> System.out.print(Integer.valueOf(x) + " ");
+            final IntConsumer ic = (x) -> System.out.print(x + " ");
 
             ExecutorService es = Executors.newFixedThreadPool(3); // need at least 3 threads going
             es.submit(() -> {
                 try {
                     zeo.zero(ic);
                 } catch (InterruptedException ign) {
+                    logger.error(ign);
                 }
             });
             es.submit(() -> {
                 try {
                     zeo.even(ic);
                 } catch (InterruptedException ign) {
+                    logger.error(ign);
                 }
             });
             es.submit(() -> {
                 try {
                     zeo.odd(ic);
                 } catch (InterruptedException ign) {
+                    logger.error(ign);
                 }
             });
 
@@ -56,8 +60,8 @@ public class ZeroEvenOdd {
             System.out.println();
 
         } catch (Throwable t) {
-            t.printStackTrace();
-            System.out.println("===================");
+            logger.error(t);
+            logger.error("===================");
             System.exit(-2);
         }
     }

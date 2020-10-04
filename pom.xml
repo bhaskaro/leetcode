@@ -11,16 +11,30 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <sonar.url>http://129.146.173.193:9000</sonar.url>
+
+        <log4j2-version>2.13.3</log4j2-version>
+
     </properties>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-        <dependency>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>3.7.0.1746</version>
-        </dependency>
+        <!-- <dependency>
+             <groupId>org.sonarsource.scanner.maven</groupId>
+             <artifactId>sonar-maven-plugin</artifactId>
+             <version>3.7.0.1746</version>
+         </dependency>-->
 
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2-version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -43,9 +57,7 @@
             </activation>
             <properties>
                 <!-- Optional URL to server. Default value is http://localhost:9000 -->
-                <sonar.host.url>
-                    http://129.146.173.193:9000
-                </sonar.host.url>
+                <sonar.host.url>${sonar.url}</sonar.host.url>
             </properties>
         </profile>
     </profiles>

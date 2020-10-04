@@ -1,12 +1,9 @@
-/**
- *
- */
 package com.oggu.lc.medium;
 
 import com.oggu.lc.utils.ListNode;
 import com.oggu.lc.utils.ListNodeUtils;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 /**
  * https://leetcode.com/problems/remove-nth-node-from-end-of-list/ <br>
@@ -23,18 +20,18 @@ import java.util.Random;
 public class RemoveNthNodeFromEndOfList {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
-        ListNode head = ListNodeUtils.createListNode(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0});
-        int n = new Random().nextInt(10);
+        ListNode head = ListNodeUtils.createListNode(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
+        int n = new SecureRandom().nextInt(10);
         ListNodeUtils.printListNode(head, "before revoing element ", n);
         head = removeNthFromEnd(head, n);
         ListNodeUtils.printListNode(head, "after revoing element ", n);
 
 
-        head = ListNodeUtils.createListNode(new int[]{1});
+        head = ListNodeUtils.createListNode(1);
         ListNodeUtils.printListNode(head, "before revoing element ", 1);
         head = removeNthFromEnd(head, n);
         ListNodeUtils.printListNode(head, "after revoing element ", 1);

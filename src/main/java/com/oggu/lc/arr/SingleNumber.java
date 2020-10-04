@@ -3,6 +3,9 @@
  */
 package com.oggu.lc.arr;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,9 +16,10 @@ import java.util.Set;
  * 136. Single Number
  *
  * @author Bhaskar
- *
  */
 public class SingleNumber {
+
+    private static Logger logger = LogManager.getLogger();
 
     /**
      * @param args
@@ -23,10 +27,10 @@ public class SingleNumber {
     public static void main(String[] args) {
 
         int[] nums = {2, 2, 1};
-        System.out.println(Arrays.toString(nums) + " -- singleNumber : " + singleNumber(nums));
+        logger.error("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
 
         nums = new int[]{4, 1, 2, 1, 2};
-        System.out.println(Arrays.toString(nums) + " -- singleNumber : " + singleNumber(nums));
+        logger.error("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
     }
 
     public static int singleNumber(int[] nums) {

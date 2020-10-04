@@ -1,5 +1,6 @@
 package com.oggu.lc.medium;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ public class SearchInRotatedSortedArray {
 
     public static void main(String... args) {
 
-        Random random = new Random();
+        Random random = new SecureRandom();
         int[] nums = {4, 5, 6, 7, 8, 9, 10, 11, 0, 1, 2, 3};
         int target = nums[random.nextInt(nums.length)];
         target = 4;

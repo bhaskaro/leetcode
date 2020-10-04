@@ -1,5 +1,6 @@
 package com.oggu.lc.medium;
 
+import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -10,7 +11,7 @@ public class SetMatrixZeroes {
 
         int rows = 5;
         int cols = 5;
-        Random ran = new Random();
+        Random ran = new SecureRandom();
         int[][] arr = new int[rows][cols];
 
         for (int i = 0; i < rows; i++)

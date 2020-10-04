@@ -1,8 +1,6 @@
-/**
- *
- */
 package com.oggu.lc.utils;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -12,10 +10,10 @@ import java.util.Random;
  */
 public class BinarySearch {
 
-    private static final Random random = new Random();
+    private static final Random random = new SecureRandom();
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -42,12 +40,9 @@ public class BinarySearch {
 
             mid = (left + right) / 2;
 
-            if (nums[mid] == target)
-                break;
-            else if (nums[mid] < target)
-                left = mid + 1;
-            else
-                right = mid;
+            if (nums[mid] == target) break;
+            else if (nums[mid] < target) left = mid + 1;
+            else right = mid;
         }
 
         return nums[mid] == target ? mid : -1;

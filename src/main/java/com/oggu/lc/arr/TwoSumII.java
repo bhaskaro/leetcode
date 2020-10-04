@@ -3,6 +3,9 @@
  */
 package com.oggu.lc.arr;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 
 /**
@@ -29,16 +32,18 @@ import java.util.Arrays;
  */
 public class TwoSumII {
 
+    private static Logger logger = LogManager.getLogger();
+
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
         int[] numbers = new int[]{2, 7, 11, 15};
         int target = 9;
 
-        System.out.println(Arrays.toString(numbers) + ", target " + target + " --  twoSum : "
-                + Arrays.toString(twoSum(numbers, target)));
+        logger.info("{}, target {} --  twoSum : {}", Arrays.toString(numbers)
+                , target, Arrays.toString(twoSum(numbers, target)));
     }
 
     public static int[] twoSum(int[] numbers, int target) {
@@ -61,31 +66,4 @@ public class TwoSumII {
         return new int[]{-1, -1};
     }
 
-    public int[] twoSumOld(int[] numbers, int target) {
-
-        int[] out = {-1, -1};
-
-        if (numbers == null || numbers.length < 2) {
-            return out;
-        }
-
-        int left = 1;
-        int right = numbers.length;
-
-        while (right <= numbers.length) {
-
-            if (numbers[left - 1] + numbers[right - 1] < target) {
-                left++;
-            } else if (numbers[left - 1] + numbers[right - 1] > target) {
-                right--;
-            } else {
-                out[0] = left;
-                out[1] = right;
-                break;
-            }
-
-        }
-
-        return out;
-    }
 }
