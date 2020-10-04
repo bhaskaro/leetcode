@@ -5,8 +5,6 @@ package com.oggu.lc.col;
 
 import com.oggu.lc.utils.ListNode;
 import com.oggu.lc.utils.ListNodeUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * @author Bhaskar
@@ -14,10 +12,8 @@ import org.apache.logging.log4j.Logger;
  */
 public class DeleteNodeInLinkedList {
 
-    private static Logger logger = LogManager.getLogger();
-
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -26,12 +22,10 @@ public class DeleteNodeInLinkedList {
         head.next.next = new ListNode(1);
         head.next.next.next = new ListNode(9);
 
-        logger.info("before delete : ");
-        ListNodeUtils.printListNode(head);
+        ListNodeUtils.printListNode(head, "before delete : ");
 
         deleteNode(head.next);
-        logger.info("after delete : ");
-        ListNodeUtils.printListNode(head);
+        ListNodeUtils.printListNode(head, "after delete : ");
     }
 
     public static void deleteNode(ListNode node) {
