@@ -1,16 +1,17 @@
-/**
- *
- */
 package com.oggu.lc.utils;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * @author Bhaskar
- *
  */
 public class ListNodeUtils {
 
+    private static Logger logger = LogManager.getLogger();
+
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
         // TODO Auto-generated method stub
@@ -73,21 +74,20 @@ public class ListNodeUtils {
 
     public static void printListNode(ListNode listNode, Object... objs) {
 
-        if (objs != null) {
-            StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
+        if (objs != null) {
             for (Object obj : objs) {
                 sb.append(obj);
                 sb.append(" ");
             }
-            System.out.println(sb);
         }
 
         while (listNode != null) {
-            System.out.print(listNode.val + " ");
+            sb.append(listNode.val).append(" ");
             listNode = listNode.next;
         }
-        System.out.println();
+        logger.info(sb);
     }
 
     public static ListNode createListNode(int... nums) {
@@ -96,7 +96,6 @@ public class ListNodeUtils {
         ListNode temp = head;
 
         for (int i = 0; i < nums.length; i++) {
-
             temp.next = new ListNode(nums[i]);
             temp = temp.next;
         }
