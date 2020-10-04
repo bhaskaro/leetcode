@@ -23,12 +23,11 @@ public class RemoveDuplicatesFromSortedListII {
         ListNode root = new ListNode();
         root.next = head;
         ListNode temp = root;
-        ListNode prev;
 
         while (head != null) {
 
             int ctr = 0;
-            prev = head;
+            ListNode prev = head;
 
             while (head != null && head.val == prev.val) {
                 ctr++;
