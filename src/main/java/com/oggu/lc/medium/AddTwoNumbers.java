@@ -17,8 +17,8 @@ public class AddTwoNumbers {
      */
     public static void main(String[] args) {
 
-        ListNode l1 = ListNodeUtils.createListNode(new int[]{2, 4, 3});
-        ListNode l2 = ListNodeUtils.createListNode(new int[]{5, 6, 4});
+        ListNode l1 = ListNodeUtils.createListNode(2, 4, 3);
+        ListNode l2 = ListNodeUtils.createListNode(5, 6, 4);
 
         ListNodeUtils.printListNode(l1, "before addition");
         ListNodeUtils.printListNode(l2, "before addition");
