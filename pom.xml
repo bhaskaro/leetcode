@@ -14,16 +14,9 @@
         <sonar.url>http://129.146.173.193:9000</sonar.url>
 
         <log4j2-version>2.13.3</log4j2-version>
-
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-        <!-- <dependency>
-             <groupId>org.sonarsource.scanner.maven</groupId>
-             <artifactId>sonar-maven-plugin</artifactId>
-             <version>3.7.0.1746</version>
-         </dependency>-->
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -74,37 +67,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <!--<executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>jacoco-check</id>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <rule>
-                                    <limits>
-                                        <limit>
-                                            <minimum>0.9</minimum>
-                                        </limit>
-                                    </limits>
-                                </rule>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>-->
             </plugin>
         </plugins>
     </build>
