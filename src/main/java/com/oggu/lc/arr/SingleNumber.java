@@ -25,11 +25,13 @@ public class SingleNumber {
 
         int[] nums = {2, 2, 1};
         int out = singleNumber(nums);
-        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), out);
+        String array = Arrays.toString(nums);
+        logger.info("{} -- singleNumber : {}", array, out);
 
         nums = new int[]{4, 1, 2, 1, 2};
         out = singleNumber(nums);
-        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), out);
+        array = Arrays.toString(nums);
+        logger.info("{} -- singleNumber : {}", array, out);
     }
 
     public static int singleNumber(int[] nums) {
