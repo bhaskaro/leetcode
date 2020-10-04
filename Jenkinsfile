@@ -1,14 +1,14 @@
 node {
    // This is to demo github action
    def sonarUrl = 'http://129.146.173.193:9000'
-   def leetcodeGit = 'https://github.com/bhaskaro/leetcode'
+   def gitRepo = 'https://github.com/bhaskaro/leetcode'
    def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
 
    stage('SCM Checkout') {
         // Clone repo
         git branch: 'master',
         //credentialsId: 'github',
-        url: '${leetcodeGit}'
+        url: "${gitRepo}"
    }
 
    stage('Sonar & Jacoco Publish'){
