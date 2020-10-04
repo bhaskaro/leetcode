@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.oggu.lc.medium;
 
 import com.oggu.lc.utils.ListNode;

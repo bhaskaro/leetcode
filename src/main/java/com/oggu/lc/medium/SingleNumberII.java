@@ -1,7 +1,7 @@
-/**
- *
- */
 package com.oggu.lc.medium;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -9,20 +9,21 @@ import java.util.Set;
 
 /**
  * @author Bhaskar
- *
  */
 public class SingleNumberII {
 
+    private static Logger logger = LogManager.getLogger();
+
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
         int[] nums = new int[]{2, 2, 3, 2};
-        System.out.println(Arrays.toString(nums) + " -- singleNumber : " + singleNumber(nums));
+        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
 
         nums = new int[]{0, 1, 0, 1, 0, 1, 99};
-        System.out.println(Arrays.toString(nums) + " -- singleNumber : " + singleNumber(nums));
+        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
     }
 
     public static int singleNumber(int[] nums) {
@@ -39,17 +40,15 @@ public class SingleNumberII {
         return 0;
     }
 
-    public static int[] singleNumberOld(int[] nums) {
+    public static int[] singleNumberWithSet(int[] nums) {
 
         Set<Integer> set = new HashSet<>();
 
         for (int i : nums)
-            if (set.contains(i))
-                set.remove(i);
-            else
-                set.add(i);
+            if (set.contains(i)) set.remove(i);
+            else set.add(i);
 
-        Integer[] array = set.stream().toArray(Integer[]::new);
+        Integer[] array = set.toArray(new Integer[0]);
 
         return new int[]{array[0], array[1]};
     }

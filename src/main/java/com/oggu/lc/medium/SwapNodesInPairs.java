@@ -7,11 +7,10 @@ public class SwapNodesInPairs {
 
     public static void main(String... args) {
 
-        ListNode head = ListNodeUtils.createListNode(new int[]{1, 2, 3, 4, 5, 6});
-        ListNodeUtils.printListNode(head);
-
+        ListNode head = ListNodeUtils.createListNode(1, 2, 3, 4, 5, 6);
+        ListNodeUtils.printListNode(head, "before swapPairs");
         ListNode swapPairs = swapPairs(head);
-        ListNodeUtils.printListNode(swapPairs, "swapParis : ");
+        ListNodeUtils.printListNode(swapPairs, "after swapPairs : ");
     }
 
     public static ListNode swapPairs(ListNode head) {

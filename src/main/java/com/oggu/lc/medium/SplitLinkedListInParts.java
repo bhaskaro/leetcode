@@ -1,32 +1,31 @@
-/**
- *
- */
 package com.oggu.lc.medium;
+
+import com.oggu.lc.utils.ListNode;
+import com.oggu.lc.utils.ListNodeUtils;
 
 /**
  * https://leetcode.com/problems/split-linked-list-in-parts/ <br>
  * 725. Split Linked List in Parts
  *
  * @author Bhaskar
- *
  */
 public class SplitLinkedListInParts {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
         int[] nums = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ListNode root = fillListNode(nums);
+        ListNode root = ListNodeUtils.createListNode(nums);
 
-        printListNode(root);
+        ListNodeUtils.printListNode(root);
 
         ListNode[] listParts = splitListToParts(root, 3);
 
         if (listParts != null)
             for (ListNode listNode : listParts) {
-                printListNode(listNode);
+                ListNodeUtils.printListNode(listNode);
             }
     }
 
@@ -74,9 +73,8 @@ public class SplitLinkedListInParts {
                     temp2.next = null;
             }
 
-            if (root != null) {
+            if (root != null)
                 temp2.next = root;
-            }
 
         }
 
@@ -90,45 +88,5 @@ public class SplitLinkedListInParts {
             len++;
         }
         return len;
-    }
-
-    private static void printListNode(ListNode listNode) {
-
-        while (listNode != null) {
-            System.out.print(listNode.val + " ");
-            listNode = listNode.next;
-        }
-        System.out.println();
-    }
-
-    private static ListNode fillListNode(int[] nums) {
-
-        ListNode head = new ListNode(0);
-        ListNode temp = head;
-
-        for (int i = 0; i < nums.length; i++) {
-
-            temp.next = new ListNode(nums[i]);
-            temp = temp.next;
-        }
-
-        return head.next;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 }

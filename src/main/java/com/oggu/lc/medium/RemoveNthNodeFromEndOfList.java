@@ -11,11 +11,10 @@ import java.security.SecureRandom;
  * <b>19. Remove Nth Node From End of List</b><br>
  *
  * <b>Follow up:</b><br>
- *
+ * <p>
  * Could you do this in one pass?
  *
  * @author Bhaskar
- *
  */
 public class RemoveNthNodeFromEndOfList {
 
@@ -48,17 +47,14 @@ public class RemoveNthNodeFromEndOfList {
 
         //get nplus one node
         while (head != null) {
-            if (ctr++ > n)
-                npone = npone.next;
+            if (ctr++ > n) npone = npone.next;
             head = head.next;
         }
 
         //remove nth node
-        if (npone != null && npone.next != null)
-            npone.next = npone.next.next;
+        if (npone != null && npone.next != null) npone.next = npone.next.next;
 
         return temp.next;
     }
-
 
 }

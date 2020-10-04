@@ -1,11 +1,17 @@
 package com.oggu.lc.medium;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
 public class SetMatrixZeroes {
+
+    private static Logger logger = LogManager.getLogger();
 
     public static void main(String[] args) {
 
@@ -18,19 +24,14 @@ public class SetMatrixZeroes {
             for (int j = 0; j < cols; j++)
                 arr[i][j] = ran.nextInt(10);
 
-        for (int[] x : arr) {
-            for (int i : x)
-                System.out.print(i + " ");
-            System.out.println();
-        }
+        for (int[] x : arr)
+            logger.info("{} ", Arrays.toString(x));
 
         setZeroes(arr);
-        System.out.println("After making zeros -------------------------");
-        for (int[] x : arr) {
-            for (int i : x)
-                System.out.print(i + " ");
-            System.out.println();
-        }
+        logger.info("After making zeros -------------------------");
+
+        for (int[] x : arr)
+            logger.info("{} ", Arrays.toString(x));
     }
 
     public static void setZeroes(int[][] matrix) {
