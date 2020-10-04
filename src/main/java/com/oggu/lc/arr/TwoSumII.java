@@ -41,9 +41,9 @@ public class TwoSumII {
 
         int[] numbers = new int[]{2, 7, 11, 15};
         int target = 9;
-
-        logger.info("{}, target {} --  twoSum : {}", Arrays.toString(numbers)
-                , target, Arrays.toString(twoSum(numbers, target)));
+        String array1 = Arrays.toString(numbers);
+        String array2 = Arrays.toString(twoSum(numbers, target));
+        logger.info("{}, target {} --  twoSum : {}", array1, target, array2);
     }
 
     public static int[] twoSum(int[] numbers, int target) {
