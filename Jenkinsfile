@@ -1,15 +1,17 @@
 node {
    // This is to demo github action
+   def sonarUrl = 'http://129.146.173.193:9000'
+   def leetcodeGit = 'https://github.com/bhaskaro/leetcode'
    def mvn = tool (name: 'maven3', type: 'maven') + '/bin/mvn'
 
    stage('SCM Checkout') {
         // Clone repo
         git branch: 'master',
         //credentialsId: 'github',
-        url: 'https://github.com/bhaskaro/leetcode'
+        url: '${leetcodeGit}'
    }
 
-   stage('Sonar Publish'){
+   stage('Sonar & Jacoco Publish'){
 	  //withCredentials([string(credentialsId: 'sonarqube', variable: 'sonarToken')]) {
        // def sonarToken = "sonar.login=${sonarToken}"
        // sh "${mvn} verify sonar:sonar"
@@ -18,7 +20,7 @@ node {
    }
 
 
-   stage('Mvn Package'){
+   stage('Maven Package'){
 	   // Build using maven
 	   sh "${mvn} clean compile package install"
    }
@@ -37,10 +39,15 @@ node {
 	  // }
 	   echo "dummy deploy-dev stage."
    }
-   stage('Email Notification') {
+
+   stage('deploy-prod') {
+     echo "dummy deploy-dev stage."
+   }
+   stage('Send Email Notification') {
 		mail bcc: '', body: """Hi Team, You build successfully deployed
 		                       Job URL : ${env.JOB_URL}
-							   Job Name: ${env.JOB_NAME}
+							   Job Name : ${env.JOB_NAME}
+							   Sonar Url : ${sonarUrl}
         Thanks,
         DevOps Team""", cc: '', from: '', replyTo: '', subject: "${env.JOB_NAME} Success", to: 'bhaskaro@gmail.com'
    }
