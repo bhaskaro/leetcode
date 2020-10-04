@@ -22,7 +22,7 @@ package com.oggu.lc.col;
 public class MaximumSubarray {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -33,29 +33,13 @@ public class MaximumSubarray {
 
     public static int maxSubArray(int[] nums) {
 
-        int left = 0;
-        int right = left + 1;
-        int len = nums.length;
-        int sum = nums[left];
-        int max = sum;
+        int max = nums[0];
+        int tot = 0;
 
-        while (right < len - 1) {
-
-            System.out.println((sum + nums[right]) + " ============= " + sum);
-            if (sum + nums[right + 1] > sum) {
-                sum = sum + nums[right++];
-
-                if (max < sum) {
-                    max = sum;
-                }
-                System.out.println(max + " ---- " + sum);
-            } else {
-                sum = sum - nums[left];
-                left++;
-                right = left + 1;
-                // sum = sum + nums[right];
-                System.out.println("resetting left -------------- " + left + ", " + right);
-            }
+        for (int num : nums) {
+            tot += num;
+            max = Math.max(max, tot);
+            tot = Math.max(tot, 0);
         }
 
         return max;

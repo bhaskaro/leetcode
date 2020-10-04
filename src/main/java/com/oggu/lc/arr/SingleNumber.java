@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.oggu.lc.arr;
 
 import org.apache.logging.log4j.LogManager;
@@ -22,15 +19,15 @@ public class SingleNumber {
     private static Logger logger = LogManager.getLogger();
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
         int[] nums = {2, 2, 1};
-        logger.error("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
+        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
 
         nums = new int[]{4, 1, 2, 1, 2};
-        logger.error("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
+        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
     }
 
     public static int singleNumber(int[] nums) {

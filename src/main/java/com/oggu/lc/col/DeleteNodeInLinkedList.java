@@ -23,9 +23,8 @@ public class DeleteNodeInLinkedList {
         head.next.next.next = new ListNode(9);
 
         ListNodeUtils.printListNode(head, "before delete : ");
-
         deleteNode(head.next);
-        ListNodeUtils.printListNode(head, "after delete : ");
+        ListNodeUtils.printListNode(head, "after delete  : ");
     }
 
     public static void deleteNode(ListNode node) {

@@ -1,7 +1,6 @@
-/**
- *
- */
 package com.oggu.lc.col;
+
+import com.oggu.lc.utils.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +12,7 @@ import java.util.Set;
 public class IntersectionOfTwoLinkedLists {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -44,15 +43,5 @@ public class IntersectionOfTwoLinkedLists {
         }
 
         return null;
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
     }
 }

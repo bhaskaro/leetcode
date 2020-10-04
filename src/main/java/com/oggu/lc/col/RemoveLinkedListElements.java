@@ -3,6 +3,9 @@
  */
 package com.oggu.lc.col;
 
+import com.oggu.lc.utils.ListNode;
+import com.oggu.lc.utils.ListNodeUtils;
+
 /**
  * @author Bhaskar
  *
@@ -10,7 +13,7 @@ package com.oggu.lc.col;
 public class RemoveLinkedListElements {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -22,11 +25,9 @@ public class RemoveLinkedListElements {
         head.next.next.next.next.next = new ListNode(5);
         head.next.next.next.next.next.next = new ListNode(6);
 
-        System.out.println("before remove element 6");
-        printListNode(head);
+        ListNodeUtils.printListNode(head, "before remove element 6");
         removeElements(head, 6);
-        System.out.println("after remove element 6");
-        printListNode(head);
+        ListNodeUtils.printListNode(head, "after remove element 6");
     }
 
     public static ListNode removeElements(ListNode head, int val) {
@@ -43,40 +44,14 @@ public class RemoveLinkedListElements {
 
             ListNode next = curr.next;
 
-            while (next != null && next.val == val) {
+            while (next != null && next.val == val)
                 next = next.next;
-            }
 
             curr.next = next;
             curr = curr.next;
         }
 
         return root;
-    }
-
-    private static void printListNode(ListNode listNode) {
-
-        while (listNode != null) {
-            System.out.println(listNode.val);
-            listNode = listNode.next;
-        }
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 
 }

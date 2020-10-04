@@ -3,6 +3,8 @@
  */
 package com.oggu.lc.col;
 
+import com.oggu.lc.utils.ListNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,7 +35,7 @@ import java.util.Set;
 public class LinkedListCycle {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
         // TODO Auto-generated method stub
@@ -58,15 +60,5 @@ public class LinkedListCycle {
         }
 
         return false;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
     }
 }

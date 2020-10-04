@@ -30,7 +30,7 @@ public class ZeroEvenOdd {
         try {
             final ZeroEvenOdd zeo = new ZeroEvenOdd(1); // 3 is the n in the test case
 
-            final IntConsumer ic = (x) -> System.out.print(x + " ");
+            final IntConsumer ic = (x) -> logger.info("{} ", x);
 
             ExecutorService es = Executors.newFixedThreadPool(3); // need at least 3 threads going
             es.submit(() -> {
@@ -57,11 +57,9 @@ public class ZeroEvenOdd {
 
             es.shutdown();
             es.awaitTermination(1, TimeUnit.DAYS); // OK crazy - but ...
-            System.out.println();
 
         } catch (Throwable t) {
             logger.error(t);
-            logger.error("===================");
             System.exit(-2);
         }
     }
