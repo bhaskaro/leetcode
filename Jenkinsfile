@@ -22,7 +22,7 @@ node {
 
    stage('Maven Package'){
 	   // Build using maven
-	   sh "${mvn} clean compile package install"
+	   sh "${mvn} clean compile package"
    }
 
    stage('deploy-dev') {
@@ -41,13 +41,13 @@ node {
    }
 
    stage('deploy-prod') {
-     echo "dummy deploy-dev stage."
+     echo "dummy deploy-prod stage."
    }
    stage('Send Email Notification') {
-		mail bcc: '', body: """Hi Team, You build successfully deployed
-		                       Job URL : ${env.JOB_URL}
-							   Job Name : ${env.JOB_NAME}
-							   Sonar Url : ${sonarUrl}
+		mail bcc: '', body: """Hi Team, Your build successfully deployed
+				 Job URL : ${env.JOB_URL}
+				 Job Name : ${env.JOB_NAME}
+				 Sonar Url : ${sonarUrl}
         Thanks,
         DevOps Team""", cc: '', from: '', replyTo: '', subject: "${env.JOB_NAME} Success", to: 'bhaskaro@gmail.com'
    }
