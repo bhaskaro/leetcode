@@ -24,10 +24,12 @@ public class SingleNumber {
     public static void main(String[] args) {
 
         int[] nums = {2, 2, 1};
-        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
+        int out = singleNumber(nums);
+        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), out);
 
         nums = new int[]{4, 1, 2, 1, 2};
-        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
+        out = singleNumber(nums);
+        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), out);
     }
 
     public static int singleNumber(int[] nums) {
