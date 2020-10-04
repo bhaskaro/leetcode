@@ -36,21 +36,21 @@ public class ZeroEvenOdd {
             es.submit(() -> {
                 try {
                     zeo.zero(ic);
-                } catch (InterruptedException ign) {
+                } catch (Exception ign) {
                     logger.error(ign);
                 }
             });
             es.submit(() -> {
                 try {
                     zeo.even(ic);
-                } catch (InterruptedException ign) {
+                } catch (Exception ign) {
                     logger.error(ign);
                 }
             });
             es.submit(() -> {
                 try {
                     zeo.odd(ic);
-                } catch (InterruptedException ign) {
+                } catch (Exception ign) {
                     logger.error(ign);
                 }
             });
