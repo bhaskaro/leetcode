@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.oggu.lc.medium;
 
 import java.util.ArrayList;
@@ -9,12 +6,11 @@ import java.util.List;
 
 /**
  * @author Bhaskar
- *
  */
 public class FindAllDuplicatesInAnArray {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
