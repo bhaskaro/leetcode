@@ -44,15 +44,13 @@ public class CompareVersionNumbers {
             int ver2 = 0;
 
             if (leftv1 < version1.length()) {
-                while (leftv1 < version1.length() && version1.charAt(leftv1) != '.')
-                    leftv1++;
+                while (leftv1 < version1.length() && version1.charAt(leftv1) != '.') leftv1++;
 
                 ver1 = Integer.parseInt(version1.substring(idx1, leftv1));
             }
 
             if (leftv2 < version2.length()) {
-                while (leftv2 < version2.length() && version2.charAt(leftv2) != '.')
-                    leftv2++;
+                while (leftv2 < version2.length() && version2.charAt(leftv2) != '.') leftv2++;
 
                 ver2 = Integer.parseInt(version2.substring(idx2, leftv2));
             }
