@@ -12,6 +12,6 @@ public class MultiplyStringsTest {
     public void multiply() {
 
         String multiply = MultiplyStrings.multiply(num1, num2);
-        Assert.assertEquals(multiply, result);
+        Assert.assertEquals(result, multiply);
     }
 }

@@ -12,6 +12,6 @@ public class SearchInRotatedSortedArrayTest {
     public void search() {
 
         int out = SearchInRotatedSortedArray.search(nums, nums[result]);
-        Assert.assertEquals(out, result);
+        Assert.assertEquals(result, out);
     }
 }

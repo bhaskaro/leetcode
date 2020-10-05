@@ -12,6 +12,6 @@ public class RemoveDuplicatesFromSortedArrayIITest {
     public void removeDuplicates() {
 
         int out = RemoveDuplicatesFromSortedArrayII.removeDuplicates(nums);
-        Assert.assertEquals(out, newLength);
+        Assert.assertEquals(newLength, out);
     }
 }

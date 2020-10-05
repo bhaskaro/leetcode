@@ -12,6 +12,6 @@ public class LongestPalindromicSubstringTest {
     public void longestPalindrome() {
 
         String palindrome = LongestPalindromicSubstring.longestPalindrome(this.s);
-        Assert.assertEquals(palindrome, result);
+        Assert.assertEquals(result, palindrome);
     }
 }

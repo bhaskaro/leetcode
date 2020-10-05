@@ -12,6 +12,6 @@ public class FindTheDuplicateNumberTest {
     public void findDuplicate() {
 
         int out = FindTheDuplicateNumber.findDuplicate(nums);
-        Assert.assertEquals(out, target);
+        Assert.assertEquals(target, out);
     }
 }
