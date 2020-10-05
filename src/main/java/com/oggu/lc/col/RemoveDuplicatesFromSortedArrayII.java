@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.oggu.lc.col;
 
 import java.util.Arrays;
@@ -12,7 +9,7 @@ import java.util.Arrays;
 public class RemoveDuplicatesFromSortedArrayII {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 

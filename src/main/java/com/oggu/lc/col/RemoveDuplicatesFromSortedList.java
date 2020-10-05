@@ -1,16 +1,14 @@
-/**
- *
- */
 package com.oggu.lc.col;
+
+import com.oggu.lc.utils.ListNode;
 
 /**
  * @author Bhaskar
- *
  */
 public class RemoveDuplicatesFromSortedList {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -72,12 +70,4 @@ public class RemoveDuplicatesFromSortedList {
         return head;
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 }

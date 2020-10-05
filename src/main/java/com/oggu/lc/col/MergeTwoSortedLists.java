@@ -1,16 +1,15 @@
-/**
- *
- */
 package com.oggu.lc.col;
+
+import com.oggu.lc.utils.ListNode;
+import com.oggu.lc.utils.ListNodeUtils;
 
 /**
  * @author Bhaskar
- *
  */
 public class MergeTwoSortedLists {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -24,7 +23,7 @@ public class MergeTwoSortedLists {
 
         ListNode merged = mergeTwoLists(l1, l2);
 
-        printListNode(merged);
+        ListNodeUtils.printListNode(merged);
     }
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -59,20 +58,4 @@ public class MergeTwoSortedLists {
         return head.next;
     }
 
-    private static void printListNode(ListNode listNode) {
-
-        while (listNode != null) {
-            System.out.println(listNode.val);
-            listNode = listNode.next;
-        }
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 }

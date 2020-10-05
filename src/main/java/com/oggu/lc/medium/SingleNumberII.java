@@ -30,15 +30,14 @@ public class SingleNumberII {
 
         Arrays.sort(nums);
 
-        for (int i = 0; i < nums.length; i++) {
-            if (i < nums.length - 2 && nums[i] == nums[i + 1] && nums[i] == nums[i + 2]) {
-                i += 2;
-            } else {
-                return nums[i];
-            }
-        }
-        return 0;
+        int i = 0;
+        while (i < nums.length - 1)
+            if (nums[i] == nums[i + 1]) i += 3;
+            else return nums[i];
+
+        return nums[nums.length - 1];
     }
+
 
     public static int[] singleNumberWithSet(int[] nums) {
 
@@ -51,6 +50,24 @@ public class SingleNumberII {
         Integer[] array = set.toArray(new Integer[0]);
 
         return new int[]{array[0], array[1]};
+    }
+
+    public int singleNumberBitManipulation(int[] nums) {
+        // This problem can be translated to:
+        //      For every bit position, we cancel any 3-time 1 and 3-time 0 to a 0
+        //      Then we need to find equations that fits this: (assume we apply 3 1s)
+        //               Zero 1      First 1     Second 1    Third 1
+        // seenOnce        0            1           0           0
+        // seenTwice       0            0           1           0
+        int seenOnce = 0;
+        int seenTwice = 0;
+
+        for (int num : nums) {
+            seenOnce = ~seenTwice & (seenOnce ^ num);
+            seenTwice = ~seenOnce & (seenTwice ^ num);
+        }
+
+        return seenOnce;
     }
 
 }

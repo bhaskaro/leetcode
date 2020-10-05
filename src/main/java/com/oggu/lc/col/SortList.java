@@ -1,10 +1,9 @@
-/**
- *
- */
 package com.oggu.lc.col;
 
+import com.oggu.lc.utils.ListNode;
+import com.oggu.lc.utils.ListNodeUtils;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -20,7 +19,7 @@ import java.util.List;
 public class SortList {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -31,7 +30,7 @@ public class SortList {
 
         ListNode sorted = sortList(listNode);
 
-        printListNode(sorted);
+        ListNodeUtils.printListNode(sorted);
     }
 
     public static ListNode sortList(ListNode head) {
@@ -46,12 +45,7 @@ public class SortList {
             head = head.next;
         }
 
-        Collections.sort(list, new Comparator<ListNode>() {
-            @Override
-            public int compare(ListNode o1, ListNode o2) {
-                return o1.val - o2.val;
-            }
-        });
+        list.sort(Comparator.comparingInt(o -> o.val));
 
         for (ListNode listNode : list) {
             temp.next = listNode;
@@ -63,20 +57,4 @@ public class SortList {
         return root.next;
     }
 
-    private static void printListNode(ListNode listNode) {
-
-        while (listNode != null) {
-            System.out.println(listNode.val);
-            listNode = listNode.next;
-        }
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 }
