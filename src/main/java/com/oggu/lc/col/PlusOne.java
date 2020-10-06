@@ -34,7 +34,7 @@ import java.util.Arrays;
 public class PlusOne {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -83,44 +83,6 @@ public class PlusOne {
         }
 
         return digits;
-    }
-
-    public int[] plusOneOld(int[] digits) {
-
-        if (digits == null || digits.length == 0) {
-            return null;
-        }
-
-        int rem = 0;
-
-        for (int i = digits.length - 1; i >= 0; i--) {
-
-            if (digits[i] < 9) {
-
-                if (rem > 0) {
-                    digits[i] = digits[i] + rem;
-                    rem = 0;
-                } else {
-                    digits[i] = digits[i] + 1;
-
-                }
-                rem = 0;
-                break;
-            } else {
-                rem = 1;
-                digits[i] = 0;
-            }
-        }
-
-        if (rem > 0) {
-            int[] temp = new int[digits.length + 1];
-            temp[0] = rem;
-            System.arraycopy(digits, 0, temp, 1, digits.length);
-            digits = temp;
-        }
-
-        return digits;
-
     }
 
 }

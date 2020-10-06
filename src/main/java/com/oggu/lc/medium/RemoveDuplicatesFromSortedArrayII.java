@@ -2,6 +2,11 @@ package com.oggu.lc.medium;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+ *
+ * @author Bhaskar
+ */
 public class RemoveDuplicatesFromSortedArrayII {
 
     public static void main(String[] args) {

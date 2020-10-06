@@ -3,6 +3,9 @@
  */
 package com.oggu.lc.col;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 
 /**
@@ -34,35 +37,37 @@ import java.util.Arrays;
  */
 public class RemoveElement {
 
+    private static Logger logger = LogManager.getLogger();
+
     /**
      * @param args arguments
      */
     public static void main(String[] args) {
 
         int[] nums = {3, 2, 2, 3};
-        System.out.print(Arrays.toString(nums));
+        logger.info(Arrays.toString(nums));
         int removeElement = removeElement(nums, 3);
-        System.out.println("  removeElement : " + removeElement + " -- " + Arrays.toString(nums));
+        logger.info("removeElement :{} from  -- {}", removeElement, Arrays.toString(nums));
 
         nums = new int[]{0, 1, 2, 2, 3, 0, 4, 2};
-        System.out.print(Arrays.toString(nums));
+        logger.info(Arrays.toString(nums));
         removeElement = removeElement(nums, 2);
-        System.out.println("  removeElement : " + removeElement + " -- " + Arrays.toString(nums));
+        logger.info("removeElement :{} from  -- {}", removeElement, Arrays.toString(nums));
 
         nums = new int[]{3, 2, 2, 3};
-        System.out.print(Arrays.toString(nums));
+        logger.info(Arrays.toString(nums));
         removeElement = removeElement(nums, 3);
-        System.out.println("  removeElement : " + removeElement + " -- " + Arrays.toString(nums));
+        logger.info("removeElement :{} from  -- {}", removeElement, Arrays.toString(nums));
 
         nums = new int[]{0, 1, 2, 2, 3, 0, 4, 2};
-        System.out.print(Arrays.toString(nums));
+        logger.info(Arrays.toString(nums));
         removeElement = removeElement(nums, 2);
-        System.out.println("  removeElement : " + removeElement + " -- " + Arrays.toString(nums));
+        logger.info("removeElement :{} from  -- {}", removeElement, Arrays.toString(nums));
 
         nums = new int[]{4, 5};
-        System.out.print(Arrays.toString(nums));
+        logger.info(Arrays.toString(nums));
         removeElement = removeElement(nums, 4);
-        System.out.println("  removeElement : " + removeElement + " -- " + Arrays.toString(nums));
+        logger.info("removeElement :{} from  -- {}", removeElement, Arrays.toString(nums));
     }
 
     public static int removeElement(int[] nums, int val) {

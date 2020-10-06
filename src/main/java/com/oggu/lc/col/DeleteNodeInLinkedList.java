@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.oggu.lc.col;
 
 import com.oggu.lc.utils.ListNode;
@@ -8,7 +5,6 @@ import com.oggu.lc.utils.ListNodeUtils;
 
 /**
  * @author Bhaskar
- *
  */
 public class DeleteNodeInLinkedList {
 

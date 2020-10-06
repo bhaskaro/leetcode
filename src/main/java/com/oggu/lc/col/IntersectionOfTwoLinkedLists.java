@@ -7,7 +7,6 @@ import java.util.Set;
 
 /**
  * @author Bhaskar
- *
  */
 public class IntersectionOfTwoLinkedLists {
 
@@ -19,7 +18,7 @@ public class IntersectionOfTwoLinkedLists {
         //tested this directly in leetcode, its working fine.
     }
 
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 
         Set<ListNode> set = new HashSet<>();
 

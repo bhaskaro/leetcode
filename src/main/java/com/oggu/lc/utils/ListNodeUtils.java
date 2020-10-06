@@ -61,7 +61,39 @@ public class ListNodeUtils {
         return nth;
     }
 
-    public static int ListLength(ListNode head) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+
+        ListNode merged = new ListNode(0);
+        ListNode head = merged;
+
+        while (l1 != null && l2 != null) {
+
+            if (l1.val < l2.val) {
+                merged.next = l1;
+                l1 = l1.next;
+            } else {
+                merged.next = l2;
+                l2 = l2.next;
+            }
+
+            merged = merged.next;
+        }
+
+        while (l1 != null) {
+            merged.next = l1;
+            l1 = l1.next;
+            merged = merged.next;
+        }
+        while (l2 != null) {
+            merged.next = l2;
+            l2 = l2.next;
+            merged = merged.next;
+        }
+
+        return head.next;
+    }
+
+    public static int getListLength(ListNode head) {
         int len = 0;
         while (head != null) {
             head = head.next;
@@ -93,8 +125,8 @@ public class ListNodeUtils {
         ListNode head = new ListNode(0);
         ListNode temp = head;
 
-        for (int i = 0; i < nums.length; i++) {
-            temp.next = new ListNode(nums[i]);
+        for (int num : nums) {
+            temp.next = new ListNode(num);
             temp = temp.next;
         }
 

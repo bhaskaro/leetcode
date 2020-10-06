@@ -1,6 +1,7 @@
 package com.oggu.lc.col;
 
 import com.oggu.lc.utils.ListNode;
+import com.oggu.lc.utils.ListNodeUtils;
 
 /**
  * @author Bhaskar
@@ -16,10 +17,9 @@ public class RemoveDuplicatesFromSortedList {
         head.next = new ListNode(1);
         head.next.next = new ListNode(2);
 
-        printListNode(head);
+        ListNodeUtils.printListNode(head, "Before removing duplicates");
         deleteDuplicates(head);
-        System.out.println("After removing duplicates");
-        printListNode(head);
+        ListNodeUtils.printListNode(head, "After removing duplicates");
 
         head = new ListNode(1);
         head.next = new ListNode(1);
@@ -28,33 +28,12 @@ public class RemoveDuplicatesFromSortedList {
         head.next.next.next.next = new ListNode(3);
 
         System.out.println("--------------------------------------------");
-        printListNode(head);
+        ListNodeUtils.printListNode(head, "Before removing duplicates");
         deleteDuplicates(head);
-        System.out.println("After removing duplicates");
-        printListNode(head);
+        ListNodeUtils.printListNode(head, "After removing duplicates");
     }
 
     public static ListNode deleteDuplicates(ListNode head) {
-
-        while (head != null && head.next != null) {
-            if (head.val == head.next.val) {
-                head.next = head.next.next;
-            } else {
-                head = head.next;
-            }
-        }
-        return head;
-    }
-
-    private static void printListNode(ListNode listNode) {
-
-        while (listNode != null) {
-            System.out.println(listNode.val);
-            listNode = listNode.next;
-        }
-    }
-
-    public ListNode deleteDuplicatesOld(ListNode head) {
 
         ListNode node = head;
 
