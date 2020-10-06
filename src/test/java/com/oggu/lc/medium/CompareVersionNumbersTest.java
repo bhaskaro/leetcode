@@ -45,7 +45,7 @@ public class CompareVersionNumbersTest {
     @Test
     public void compareVersion5() {
 
-        String version1 = "7.5.2.4";
+        String version1 = "7.5.2.4.1";
         String version2 = "7.5.3";
 
         Assert.assertEquals(-1, CompareVersionNumbers.compareVersion(version1, version2));

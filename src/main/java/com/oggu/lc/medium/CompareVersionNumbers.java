@@ -25,7 +25,7 @@ public class CompareVersionNumbers {
         version2 = "1";
         logger.info("compareVersion of {}, {} : {}", version1, version2, compareVersion(version1, version2));
 
-        version1 = "7.5.2.4";
+        version1 = "7.5.2.4.1";
         version2 = "7.5.3";
         logger.info("compareVersion of {}, {} : {}", version1, version2, compareVersion(version1, version2));
     }

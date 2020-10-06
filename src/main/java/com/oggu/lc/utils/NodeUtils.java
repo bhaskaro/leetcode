@@ -51,7 +51,7 @@ public class NodeUtils {
 
             if (ctr == n)
                 nth = temp;
-            else if (ctr > n)
+            else if (ctr > n && nth != null)
                 nth = nth.next;
 
             head = head.next;
