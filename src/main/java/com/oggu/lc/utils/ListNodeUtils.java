@@ -3,7 +3,7 @@ package com.oggu.lc.utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 /**
  * @author Bhaskar
@@ -17,11 +17,13 @@ public class ListNodeUtils {
      */
     public static void main(String[] args) {
 
-        int[] randNums = new Random().ints(10, 1, 1000).toArray();
+        int[] randNums = new SecureRandom().ints(10, 1, 1000).toArray();
 
         ListNode listNode = createListNode(randNums);
         logger.info("list node len : " + getListLength(listNode));
-        logger.info("Array of list length : {}", toArray(listNode).length);
+
+        if (listNode != null)
+            logger.info("Array of list length : {}", toArray(listNode).length);
     }
 
     public static ListNode getFirstNthElement(ListNode head, int n) {
@@ -58,7 +60,7 @@ public class ListNodeUtils {
 
             if (ctr == n)
                 nth = temp;
-            else if (ctr > n)
+            else if (ctr > n && nth != null)
                 nth = nth.next;
 
             head = head.next;
