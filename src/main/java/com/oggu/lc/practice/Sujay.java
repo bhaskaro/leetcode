@@ -14,7 +14,6 @@ public class Sujay {
         System.out.println("test line added to test bitbucket integration");
         System.out.println("test line added to test bitbucket integration - 2");
         System.out.println("test line added to test bitbucket integration - 3");
-        System.out.println("test line added to test bitbucket integration - 4");
     }
 
 }
