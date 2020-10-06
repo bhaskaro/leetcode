@@ -1,8 +1,7 @@
 package com.oggu.lc.easy;
 
-import com.oggu.lc.arr.SingleNumber;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 
 public class SingleNumberTest {
