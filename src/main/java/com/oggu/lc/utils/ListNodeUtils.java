@@ -3,6 +3,8 @@ package com.oggu.lc.utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Random;
+
 /**
  * @author Bhaskar
  */
@@ -14,8 +16,12 @@ public class ListNodeUtils {
      * @param args arguments
      */
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
 
+        int[] randNums = new Random().ints(10, 1, 1000).toArray();
+
+        ListNode listNode = createListNode(randNums);
+        logger.info("list node len : " + getListLength(listNode));
+        logger.info("Array of list length : {}", toArray(listNode).length);
     }
 
     public static ListNode getFirstNthElement(ListNode head, int n) {
@@ -131,5 +137,21 @@ public class ListNodeUtils {
         }
 
         return head.next;
+    }
+
+    public static int[] toArray(ListNode head) {
+
+        if (head == null)
+            return null;
+
+        int len = getListLength(head);
+        int[] out = new int[len];
+        int x = 0;
+
+        while (head != null) {
+            out[x++] = head.val;
+            head = head.next;
+        }
+        return out;
     }
 }

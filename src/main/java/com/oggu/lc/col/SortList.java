@@ -12,9 +12,7 @@ import java.util.List;
  * <br>
  * Sort a linked list in O(n log n) time using constant space complexity.
  *
- *
  * @author Bhaskar
- *
  */
 public class SortList {
 
@@ -30,15 +28,16 @@ public class SortList {
 
         ListNode sorted = sortList(listNode);
 
-        ListNodeUtils.printListNode(sorted);
+        ListNodeUtils.printListNode(sorted, "Sorted List : ");
     }
+
 
     public static ListNode sortList(ListNode head) {
 
         ListNode temp = new ListNode(0);
         ListNode root = temp;
 
-        List<ListNode> list = new ArrayList<ListNode>();
+        List<ListNode> list = new ArrayList<>();
 
         while (head != null) {
             list.add(head);
