@@ -14,8 +14,6 @@ public class NodeUtils {
      * @param args arguments
      */
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
     }
 
     public static Node getFirstNthElement(Node head, int n) {
@@ -26,9 +24,7 @@ public class NodeUtils {
         int ctr = 0;
 
         while (head != null) {
-
             if (++ctr == n) return head;
-
             head = head.next;
         }
 
@@ -60,7 +56,7 @@ public class NodeUtils {
         return nth;
     }
 
-    public static int ListLength(Node head) {
+    public static int getListLength(Node head) {
         int len = 0;
         while (head != null) {
             head = head.next;
