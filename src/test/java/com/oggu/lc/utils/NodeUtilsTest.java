@@ -22,19 +22,33 @@ public class NodeUtilsTest {
 
 
     @Test(priority = 3)
-    public void testGetFirstNthElement() {
+    public void testGetFirstNthElement1() {
 
         Node node = NodeUtils.getFirstNthElement(head, 3);
         Assert.assertNotNull(node);
         Assert.assertEquals(node.val, 3);
     }
 
+    @Test(priority = 4)
+    public void testGetFirstNthElement2() {
+
+        Node node = NodeUtils.getFirstNthElement(null, 0);
+        Assert.assertNull(node);
+    }
+
     @Test
-    public void testGetLastNthElement() {
+    public void testGetLastNthElement1() {
 
         Node node = NodeUtils.getLastNthElement(head, 2);
         Assert.assertNotNull(node);
         Assert.assertEquals(node.val, 4);
+    }
+
+    @Test
+    public void testGetLastNthElement2() {
+
+        Node node = NodeUtils.getLastNthElement(head, 0);
+        Assert.assertNull(node);
     }
 
     @Test
@@ -47,7 +61,7 @@ public class NodeUtilsTest {
     @Test
     public void testPrintListNode() {
 
-        NodeUtils.printListNode(head);
+        NodeUtils.printListNode(head, "test print list node");
     }
 
 

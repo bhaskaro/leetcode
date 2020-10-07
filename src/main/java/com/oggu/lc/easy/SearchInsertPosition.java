@@ -29,24 +29,30 @@ public class SearchInsertPosition {
 
         int[] nums = new int[]{1, 3, 5, 6};
         int target = 5;
-        logger.info("{} can be inserted at searchInsert : {} for {}", target, searchInsert(nums, target), Arrays.toString(nums));
+        int insrtIdx = searchInsert(nums, target);
+        logger.info("{} can be inserted at searchInsert : {} for {}", target, insrtIdx, Arrays.toString(nums));
 
         target = 2;
-        logger.info("{} can be inserted at searchInsert : {} for {}", target, searchInsert(nums, target), Arrays.toString(nums));
+        insrtIdx = searchInsert(nums, target);
+        logger.info("{} can be inserted at searchInsert : {} for {}", target, insrtIdx, Arrays.toString(nums));
 
         target = 7;
-        logger.info("{} can be inserted at searchInsert : {} for {}", target, searchInsert(nums, target), Arrays.toString(nums));
+        insrtIdx = searchInsert(nums, target);
+        logger.info("{} can be inserted at searchInsert : {} for {}", target, insrtIdx, Arrays.toString(nums));
 
         target = 0;
-        logger.info("{} can be inserted at searchInsert : {} for {}", target, searchInsert(nums, target), Arrays.toString(nums));
+        insrtIdx = searchInsert(nums, target);
+        logger.info("{} can be inserted at searchInsert : {} for {}", target, insrtIdx, Arrays.toString(nums));
 
         nums = new int[]{1, 3};
         target = 0;
-        logger.info("{} can be inserted at searchInsert : {} for {}", target, searchInsert(nums, target), Arrays.toString(nums));
+        insrtIdx = searchInsert(nums, target);
+        logger.info("{} can be inserted at searchInsert : {} for {}", target, insrtIdx, Arrays.toString(nums));
 
         nums = new int[]{1, 2, 4, 6, 7};
         target = 3;
-        logger.info("{} can be inserted at searchInsert : {} for {}", target, searchInsert(nums, target), Arrays.toString(nums));
+        insrtIdx = searchInsert(nums, target);
+        logger.info("{} can be inserted at searchInsert : {} for {}", target, insrtIdx, Arrays.toString(nums));
     }
 
     public static int searchInsert(int[] nums, int target) {
@@ -69,43 +75,4 @@ public class SearchInsertPosition {
         return low;
     }
 
-    // not working
-    public int searchInsertOld(int[] nums, int target) {
-
-        int start = 0;
-        int end = nums.length - 1;
-
-        int mid = 0;
-
-        while (start <= end) {
-
-            mid = (start + end) / 2;
-
-            if (nums[mid] == target) {
-                return mid;
-            } else if (nums[mid] < target) {
-                start = mid + 1;
-            } else {
-                end = mid - 1;
-            }
-        }
-
-        if (mid == nums.length - 1) {
-
-            if (nums[mid] > target) {
-                mid++;
-            } else {
-                mid--;
-            }
-        } else if (mid == 0) {
-
-            if (nums[mid] < target) {
-                mid++;
-            } else {
-                mid--;
-            }
-        }
-
-        return mid;
-    }
 }
