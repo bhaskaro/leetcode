@@ -1,5 +1,6 @@
 package com.oggu.lc.arr;
 
+import com.oggu.lc.easy.TwoSumII;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
