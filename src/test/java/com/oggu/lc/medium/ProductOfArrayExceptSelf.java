@@ -45,4 +45,29 @@ public class ProductOfArrayExceptSelf {
         return out;
     }
 
+    public static int[] productExceptSelfNew(int[] nums) {
+        /*
+        1) find the left array by just multiplying all the values with product variable
+        2) use the same product variable to keep track of right array by doing the opposite.
+        TIME : O(N)
+        SPACE : O(1)
+        */
+        int n = nums.length;
+        int[] output = new int[n];
+        int product = 1;
+
+        for (int i = 0; i < n; i++) {
+            product *= nums[i];
+            output[i] = product;
+        }
+        product = 1; // right array
+        for (int i = n - 1; i > 0; i--) {
+            output[i] = output[i - 1] * product;
+            product *= nums[i];
+        }
+        output[0] = product;
+        return output;
+
+    }
+
 }

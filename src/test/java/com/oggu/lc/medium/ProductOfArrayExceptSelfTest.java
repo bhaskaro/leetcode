@@ -17,4 +17,12 @@ public class ProductOfArrayExceptSelfTest {
         int[] out = ProductOfArrayExceptSelf.productExceptSelf(nums);
         Assert.assertEquals(out, new int[]{24, 12, 8, 6});
     }
+
+    @Test
+    public void testProductExceptSelfNew() {
+
+        int[] nums = new int[]{1, 2, 3, 4};
+        int[] out = ProductOfArrayExceptSelf.productExceptSelfNew(nums);
+        Assert.assertEquals(out, new int[]{24, 12, 8, 6});
+    }
 }

@@ -1,24 +1,18 @@
-/**
- *
- */
 package com.oggu.lc.easy;
 
 /**
  * https://leetcode.com/problems/factorial-trailing-zeroes/ <br>
  * <br>
  * 172. Factorial Trailing Zeroes <br>
- *
+ * <p>
  * Given an integer n, return the number of trailing zeroes in n!.
  *
- *
- *
  * @author Bhaskar
- *
  */
 public class FactorialTrailingZeroes {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -27,31 +21,25 @@ public class FactorialTrailingZeroes {
 
         n = 9;
         System.out.println(n + " factoriral trailingZeroes : " + trailingZeroes(n));
+
+        n = 13;
+        System.out.println(n + " factoriral trailingZeroes : " + trailingZeroes(n));
+
+        n = 30;
+        System.out.println(n + " factoriral trailingZeroes : " + trailingZeroes(n));
     }
 
     public static int trailingZeroes(int n) {
 
-        int fact = 1;
-        int ctr = 0;
+        // Initialize result
+        int count = 0;
 
-        while (n > 0) {
-            fact = fact * n;
-            n = n - 1;
-        }
+        // Keep dividing n by powers
+        // of 5 and update count
+        for (int i = 5; n / i >= 1; i *= 5)
+            count += n / i;
 
-        System.out.println("factorial : " + fact);
-
-        while (fact > 0) {
-
-            if (fact % 10 == 0) {
-                ctr++;
-                fact = fact / 10;
-            } else {
-                break;
-            }
-        }
-
-        return ctr;
+        return count;
     }
 
 }
