@@ -1,10 +1,15 @@
 package com.oggu.lc.medium;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CompareVersionNumbersTest {
 
+    @BeforeMethod
+    public void setUp() {
+        CompareVersionNumbers.main(null);
+    }
 
     @Test
     public void compareVersion1() {

@@ -4,8 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author Bhaskar
@@ -20,10 +18,12 @@ public class SingleNumberII {
     public static void main(String[] args) {
 
         int[] nums = new int[]{2, 2, 3, 2};
-        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
+        int out = singleNumber(nums);
+        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), out);
 
         nums = new int[]{0, 1, 0, 1, 0, 1, 99};
-        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), singleNumber(nums));
+        out = singleNumber(nums);
+        logger.info("{} -- singleNumber : {}", Arrays.toString(nums), out);
     }
 
     public static int singleNumber(int[] nums) {
@@ -39,20 +39,7 @@ public class SingleNumberII {
     }
 
 
-    public static int[] singleNumberWithSet(int[] nums) {
-
-        Set<Integer> set = new HashSet<>();
-
-        for (int i : nums)
-            if (set.contains(i)) set.remove(i);
-            else set.add(i);
-
-        Integer[] array = set.toArray(new Integer[0]);
-
-        return new int[]{array[0], array[1]};
-    }
-
-    public int singleNumberBitManipulation(int[] nums) {
+    public static int singleNumberBitManipulation(int[] nums) {
         // This problem can be translated to:
         //      For every bit position, we cancel any 3-time 1 and 3-time 0 to a 0
         //      Then we need to find equations that fits this: (assume we apply 3 1s)
