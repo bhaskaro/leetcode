@@ -44,5 +44,4 @@ public class ArrangingCoins {
         return 1 + count(n -= i, ++i);
     }
 
-
 }
