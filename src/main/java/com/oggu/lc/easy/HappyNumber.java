@@ -41,6 +41,9 @@ public class HappyNumber {
     private static int getSquare(int n) {
 
         if (n < 10) return n * n;
-        else return ((n % 10) * (n % 10)) + getSquare(n / 10);
+        else {
+            int temp = (n % 10);
+            return (temp * temp) + getSquare(n / 10);
+        }
     }
 }
