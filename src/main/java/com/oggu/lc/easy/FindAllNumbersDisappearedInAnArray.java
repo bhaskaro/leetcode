@@ -16,7 +16,7 @@ import java.util.List;
 public class FindAllNumbersDisappearedInAnArray {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -26,16 +26,15 @@ public class FindAllNumbersDisappearedInAnArray {
 
     public static List<Integer> findDisappearedNumbers(int[] nums) {
 
-        for (int i : nums) {
+        int ctr = 0;
 
-            if (i < 0)
-                i *= -1;
+        for (int i : nums)
+            if (nums[Math.abs(i) - 1] > 0) {
+                nums[Math.abs(i) - 1] *= -1;
+                ctr++;
+            }
 
-            if (nums[i - 1] > 0)
-                nums[i - 1] = nums[i - 1] * -1;
-        }
-
-        List<Integer> list = new ArrayList<Integer>(2);
+        List<Integer> list = new ArrayList<>(nums.length - ctr);
 
         for (int i = 0; i < nums.length; i++)
             if (nums[i] > 0)
@@ -43,4 +42,5 @@ public class FindAllNumbersDisappearedInAnArray {
 
         return list;
     }
+
 }
