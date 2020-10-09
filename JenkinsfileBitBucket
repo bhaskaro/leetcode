@@ -22,7 +22,7 @@ node {
 
    stage('Maven Package'){
 	   // Build using maven
-	   sh "${mvn} clean compile package"
+	   sh "${mvn} compile package"
    }
 
    stage('deploy-dev') {
