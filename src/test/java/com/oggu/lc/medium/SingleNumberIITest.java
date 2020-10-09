@@ -8,6 +8,12 @@ public class SingleNumberIITest {
     int[] nums = null;
 
     @Test
+    public void testMain() {
+
+        SingleNumberII.main(null);
+    }
+
+    @Test
     public void testSingleNumber() {
 
         nums = new int[]{2, 2, 3, 2};

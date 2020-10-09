@@ -5,7 +5,6 @@ import java.util.Random;
 
 /**
  * @author Bhaskar
- *
  */
 public class AddStrings {
 
