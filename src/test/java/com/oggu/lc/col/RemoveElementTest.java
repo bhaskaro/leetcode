@@ -9,6 +9,12 @@ public class RemoveElementTest {
     int val = 2;
 
     @Test
+    public void testMain() {
+
+        RemoveElement.main(null);
+    }
+
+    @Test
     public void testRemoveElement() {
 
         int newIdx = RemoveElement.removeElement(nums, val);

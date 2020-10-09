@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.oggu.lc.practice;
 
 import com.oggu.lc.utils.ListNode;
@@ -10,10 +7,7 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 /**
- *
- *
  * @author Bhaskar
- *
  */
 public class ListGetElement {
 

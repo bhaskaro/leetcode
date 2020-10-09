@@ -11,6 +11,13 @@ public class ReverseWordsInAStringTest {
     String result1 = "blue is sky the";
     String result2 = "example good a";
 
+
+    @Test
+    public void testMain() {
+
+        ReverseWordsInAString.main(null);
+    }
+
     @Test
     public void reverseWords() {
 
