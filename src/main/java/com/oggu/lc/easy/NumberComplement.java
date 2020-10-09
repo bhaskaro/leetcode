@@ -25,7 +25,6 @@ public class NumberComplement {
             out = out + (Math.pow(2, i++) * (num % 2 == 0 ? 1 : 0));
             num = num >> 1;
         }
-
         return (int) out;
     }
 
