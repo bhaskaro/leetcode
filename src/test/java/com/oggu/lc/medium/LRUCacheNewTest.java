@@ -14,6 +14,13 @@ public class LRUCacheNewTest {
         cache = new LRUCacheNew(capacity);
     }
 
+
+    @Test(invocationCount = 2)
+    public void testMain() {
+
+        LRUCacheNew.main(null);
+    }
+
     @Test(invocationCount = 10)
     public void testGet() {
 
