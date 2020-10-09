@@ -14,7 +14,6 @@ public class Sujay {
         System.out.println("HIIIIIIIIIIIIIIIIIIIIIIII");
         System.out.println("HIIIIIIIIIIIIIIIIIIIIIIII");
         System.out.println("HIIIIIIIIIIIIIIIIIIIIIIII");
-        System.out.println("HIIIIIIIIIIIIIIIIIIIIIIII");
     }
 
 }
