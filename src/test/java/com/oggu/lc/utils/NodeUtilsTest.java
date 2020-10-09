@@ -14,6 +14,13 @@ public class NodeUtilsTest {
     }
 
     @Test(priority = 1)
+    public void testMain() {
+
+        NodeUtils.main(null);
+    }
+
+
+    @Test(priority = 1)
     public void testCreateListNode() {
 
         head = NodeUtils.createListNode(1, 2, 3, 4, 5);
@@ -50,6 +57,7 @@ public class NodeUtilsTest {
         Node node = NodeUtils.getLastNthElement(head, 0);
         Assert.assertNull(node);
     }
+
 
     @Test
     public void testGetListLength() {
