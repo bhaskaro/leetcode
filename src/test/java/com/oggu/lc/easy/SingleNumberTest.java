@@ -10,6 +10,12 @@ public class SingleNumberTest {
     int target = 4;
 
     @Test
+    public void testMain() {
+
+        SingleNumber.main(null);
+    }
+
+    @Test
     public void singleNumber() {
 
         int out = SingleNumber.singleNumber(nums);

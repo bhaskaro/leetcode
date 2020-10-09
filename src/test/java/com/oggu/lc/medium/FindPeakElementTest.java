@@ -12,6 +12,12 @@ public class FindPeakElementTest {
     int result2 = 1;
 
     @Test
+    public void testMain() {
+
+        FindPeakElement.main(null);
+    }
+
+    @Test
     public void findPeakElement1() {
 
         int out = FindPeakElement.findPeakElement(nums1);
