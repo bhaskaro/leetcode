@@ -18,6 +18,12 @@ public class MaximumProductSubarrayTest {
     private int result4 = 2;
 
 
+    @Test(invocationCount = 1)
+    public void testMain() {
+
+        MaximumProductSubarray.main(null);
+    }
+
     @Test
     public void maxProduct1() {
         int result = MaximumProductSubarray.maxProduct(nums1);

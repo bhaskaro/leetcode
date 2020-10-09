@@ -16,6 +16,12 @@ public class RemoveDuplicatesFromSortedListIITest {
         head = ListNodeUtils.createListNode(1, 2, 3, 3, 4, 4, 5);
     }
 
+    @Test(invocationCount = 1)
+    public void testMain() {
+
+        RemoveDuplicatesFromSortedListII.main(null);
+    }
+
     @Test(invocationCount = 5)
     public void testDeleteDuplicates1() {
 
