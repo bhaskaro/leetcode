@@ -1,0 +1,96 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Prepare Git & Bitbucket Dirs') {
+            steps {
+                echo 'Preparing Git & Bitbucket dirs and keys'
+                sh '''
+                mkdir -p /scratch/repositories/bitbucket
+                mkdir -p /scratch/repositories/git
+                if ! grep github.com ~/.ssh/known_hosts > /dev/null
+                then
+                     ssh-keyscan github.com >> ~/.ssh/known_hosts
+                fi
+                if ! grep bitbucket.org ~/.ssh/known_hosts > /dev/null
+                then
+                     ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
+                fi
+                echo 'Prepared Git & Bitbucket dirs and keys'
+                '''
+            }
+        }
+
+        stage('Checkout BitBucket') {
+            steps {
+                echo 'Checking out BitBucket Code'
+                sh '''
+				cd /scratch/repositories/bitbucket
+				if [[ -d "leetcode" ]]; then
+				  echo "bitbucket leetcode repo exists checking out now"
+				  cd leetcode
+				  git pull
+				  echo "bitbucket repo checked out"
+				else
+				  echo "bitbucket repo doesnt exists cloning now"
+				  git clone ssh://bhaskaro@bitbucket.org/bhaskaro/leetcode.git
+				  echo "bitbucket repo cloned"
+				fi
+				bb_last_comment=$(git log -1 --pretty=%B)
+				echo "${bb_last_comment}" > /tmp/bb_last_comment
+                '''
+                echo 'Checked out BitBucket Code'
+            }
+        }
+
+        stage('Update Git') {
+             steps {
+                echo 'Checking out Git Code'
+                sh '''
+				cd /scratch/repositories/git
+				if [[ -d "leetcode" ]]; then
+				  echo "git leetcode repo exists checking out now"
+				  cd leetcode
+				  git pull
+				  echo "git repo checked out"
+				else
+				  echo "git repo doesnt exists cloning now"
+				  git clone git@github.com:bhaskaro/leetcode.git
+				  echo "git repo cloned"
+				fi
+                '''
+                echo 'Checked out git Code'
+            }
+        }
+
+        stage('Sync Bitbucket -> Git') {
+            steps {
+                echo 'Synching BitBucket to Git'
+				sh 'rsync -av --progress /scratch/repositories/bitbucket/leetcode /scratch/repositories/git/ --exclude .git'
+				echo 'Synching BitBucket to Git - completed'
+            }
+        }
+
+        stage('Commit & Push to Git') {
+            steps {
+				 script {
+					echo 'Committing code to Git'
+					sh '''
+					cd /scratch/repositories/git/leetcode
+					git add .
+					git status > /tmp/gitleetstatus
+					if ! grep "nothing to commit" /tmp/gitleetstatus > /dev/null
+					then
+					  git commit -m "$(cat /tmp/bb_last_comment) - $(date)"
+					  git push
+					  echo "Pushed BitBucket changes to Git"
+					else
+					  echo "Nothing to commit"
+					fi
+					'''
+				}
+            }
+        }
+    }
+
+}
