@@ -81,7 +81,7 @@ pipeline {
 					git status > /tmp/gitleetstatus
 					if ! grep "nothing to commit" /tmp/gitleetstatus > /dev/null
 					then
-					  git commit -m "$(cat /tmp/bb_last_comment) - $(date)"
+					  git commit -m "$(cat /tmp/bb_last_comment)"
 					  git push
 					  echo "Pushed BitBucket changes to Git"
 					else

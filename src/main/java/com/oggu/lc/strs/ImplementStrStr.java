@@ -20,7 +20,7 @@ package com.oggu.lc.strs;
 public class ImplementStrStr {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 

@@ -1,16 +1,12 @@
-/**
- *
- */
 package com.oggu.lc.strs;
 
 /**
  * @author Bhaskar
- *
  */
 public class AddBinary {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
@@ -109,7 +105,7 @@ public class AddBinary {
         String outStr = null;
 
         if (tot > 0) {
-            out[--x] = (tot > 0) ? one : zero;
+            out[--x] = one;
             outStr = new String(out);
         } else {
             outStr = new String(out, 1, out.length - 1);
@@ -119,7 +115,7 @@ public class AddBinary {
     }
 
     // 1 ms time
-    public String addBinaryOld(String a, String b) {
+    public static String addBinaryOld(String a, String b) {
 
         int i = a.length() - 1;
         int j = b.length() - 1;

@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.oggu.lc.easy;
 
 import com.oggu.lc.utils.ListNode;
@@ -11,20 +8,19 @@ import java.util.List;
 
 /**
  * @author Bhaskar
- *
  */
 public class PalindromeLinkedList {
 
     /**
-     * @param args
+     * @param args arguments
      */
     public static void main(String[] args) {
 
-        ListNode head = ListNodeUtils.createListNode(new int[]{1, 2});
+        ListNode head = ListNodeUtils.createListNode(1, 2);
         ListNodeUtils.printListNode(head, "list node : ");
         System.out.println("isPalindrome : " + isPalindrome(head));
 
-        head = ListNodeUtils.createListNode(new int[]{1, 2, 2, 1});
+        head = ListNodeUtils.createListNode(1, 2, 2, 1);
         ListNodeUtils.printListNode(head, "list node : ");
         System.out.println("isPalindrome : " + isPalindrome(head));
     }
@@ -92,7 +88,7 @@ public class PalindromeLinkedList {
         return true;
     }
 
-    public boolean isPalindromeOld2(ListNode head) {
+    public static boolean isPalindromeOld2(ListNode head) {
 
         ListNode temp = head;
         int ctr = 0;

@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.oggu.lc.medium;
 
 import java.util.ArrayList;
@@ -10,7 +7,6 @@ import java.util.Map;
 
 /**
  * @author Bhaskar
- *
  */
 public class LongestPalindromicSubstring {
 

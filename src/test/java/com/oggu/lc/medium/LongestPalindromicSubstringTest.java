@@ -9,9 +9,15 @@ public class LongestPalindromicSubstringTest {
     String result = "abccba";
 
     @Test
+    public void testMain() {
+
+        LongestPalindromicSubstring.main(null);
+    }
+
+    @Test
     public void longestPalindrome() {
 
-        String palindrome = LongestPalindromicSubstring.longestPalindrome(this.s);
+        String palindrome = LongestPalindromicSubstring.longestPalindrome(s);
         Assert.assertEquals(result, palindrome);
     }
 }
